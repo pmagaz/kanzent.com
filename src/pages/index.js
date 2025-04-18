@@ -3,15 +3,7 @@ import { useEffect } from "react"
 import Layout from "../components/Layout"
 import AnimatedBackground from "../components/AnimatedBackground"
 import { Link as ScrollLink, Element } from "react-scroll"
-
-// Define color constants
-const COLORS = {
-  primary: '#03304ffe',
-  secondary: '#64CFFF',
-  tertiary: '#0E37C0',
-  accent: '#FF499E',
-  background: '#F8FAFB',
-};
+import { COLORS } from "../const/colors"
 
 // Lorem ipsum paragraphs for sections
 const loremIpsum = {
@@ -45,106 +37,48 @@ const IndexPage = () => {
       {/* Hero Section with Zooming Background */}
       <section 
         id="hero" 
-        style={{ 
-          position: 'relative', 
-          height: '100vh', 
-          display: 'flex', 
-          alignItems: 'center',
-          overflow: 'hidden',
-          zIndex: 5 /* Ensure proper stacking context */
-        }}
+        className="relative h-screen flex items-center overflow-hidden z-10"
       >
         {/* Background image with parallax zoom effect */}
         <div 
-          className="parallax-zoom-bg"
+          className="parallax-zoom-bg absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover z-[1] origin-center backface-hidden"
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
             backgroundImage: 'url("/images/hero-background.png")',
-            backgroundPosition: 'center 50px', /* Offset by 100px from the top */
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            zIndex: 1,
-            transformOrigin: 'center center',
-            backfaceVisibility: 'hidden'
+            backgroundPosition: 'center 50px', /* Offset by 50px from the top */
           }}
           data-zoom="1.5"
         />
         
         {/* No dark overlay as per requirement */}
         
-        <div style={{ 
-          position: 'relative', 
-          zIndex: 10, 
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 64px',
-          display: 'flex',
-          alignItems: 'center',
-          width: '100%',
-          marginTop: '-200px' /* Move up by 100px */
-        }}>
+        <div className="relative z-10 max-w-7xl mx-auto px-16 flex items-center w-full -mt-[200px]">
           <img 
             src="/images/KaizensLogo.svg" 
             alt="Kaizens Logo" 
-            className="hero-logo-animation"
-            style={{ 
-              height: '275px', 
-              width: 'auto', 
-              marginRight: '60px'
-            }} 
+            className="hero-logo-animation h-[275px] w-auto mr-[60px]"
           />
           <div>
             <h1
-              className="hero-title-animation"
-              style={{ 
-                color: COLORS.primary, 
-                fontSize: '60px', 
-                fontWeight: 'bold', 
-                marginBottom: '24px',
-                lineHeight: '1.1',
-                fontWeight: "bold"
-              }}
+              className="hero-title-animation text-primary text-[60px] font-bold mb-6 leading-tight"
             >
               The Power<br />of Evolution
             </h1>
             <p
-              className="hero-slogan-animation"
-              style={{ 
-                color: COLORS.primary, 
-                fontSize: '22px', 
-                marginBottom: '40px',
-                maxWidth: '600px',
-                fontWeight: "normal"
-              }}
+              className="hero-slogan-animation text-primary text-[22px] mb-10 max-w-[600px] font-normal"
             >
               Continuous Improvement
             </p>
             {/* Get Started button removed as per requirement */}
           </div>
         </div>
-        <div style={{ 
-          position: 'absolute', 
-          bottom: '30px', 
-          left: '0', 
-          right: '0', 
-          textAlign: 'center',
-          zIndex: 10
-        }}>
+        <div className="absolute bottom-[30px] left-0 right-0 text-center z-10">
           <ScrollLink 
             to="solutions"
             spy={true}
             smooth={true}
             offset={-70}
             duration={800}
-            style={{ 
-              display: 'inline-block',
-              cursor: 'pointer',
-              animation: 'bounce 2s infinite'
-            }}
+            className="inline-block cursor-pointer animate-bounce"
             onMouseEnter={(e) => {
               const path = e.currentTarget.querySelector('path');
               if (path) path.setAttribute('stroke', COLORS.accent);
@@ -163,140 +97,57 @@ const IndexPage = () => {
 
       {/* Solutions Section with Parallax - Dark background with network image */}
       <Element name="solutions">
-        <section style={{ 
-          padding: '100px 0', 
-          background: COLORS.primary,
-          position: 'relative',
-          overflow: 'hidden',
-          color: 'white'
-        }}>
+        <section className="py-24 bg-primary relative overflow-hidden text-white">
           {/* Parallax Background */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '100%',
-            background: 'transparent',
-            zIndex: 1
-          }} 
-          className="parallax-bg"
-          data-speed="0.15"
+          <div 
+            className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
+            data-speed="0.15"
           />
 
-          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 64px', position: 'relative', zIndex: 2 }}>
-            <h2 style={{ 
-              fontSize: '60px', 
-              color: COLORS.background, 
-              marginBottom: '40px',
-              fontWeight: 'bold',
-              fontWeight: "bold"
-            }}>
+          <div className="max-w-7xl mx-auto px-16 relative z-[2]">
+            <h2 className="text-[60px] text-background mb-10 font-bold">
               Our Mission
             </h2>
             
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column',
-              marginBottom: '60px',
-              maxWidth: '600px'
-            }}>
-              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.8', fontSize: '18px', marginBottom: '20px' }}>
+            <div className="flex flex-col mb-16 max-w-[600px]">
+              <p className="text-white/90 leading-relaxed text-lg mb-5">
                 {loremIpsum.medium}
               </p>
-              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.8', fontSize: '18px' }}>
+              <p className="text-white/90 leading-relaxed text-lg">
                 {loremIpsum.short}
               </p>
             </div>
             
-            <div style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap',
-              alignItems: 'stretch',
-              gap: '30px',
-              paddingTop: '30px'
-            }}>
+            <div className="flex flex-wrap items-stretch gap-8 pt-8">
               {/* Content box with image background */}
-              <div style={{ 
-                flex: '1', 
-                minWidth: '300px',
-                maxWidth: '100%',
-                position: 'relative',
-                display: 'flex',
-                overflow: 'hidden'
-              }}>
+              <div className="flex-1 min-w-[300px] max-w-full relative flex overflow-hidden">
                 {/* Content wrapper */}
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '30px',
-                  width: '100%'
-                }}>
+                <div className="grid grid-cols-2 gap-8 w-full">
                   {/* Image box */}
-                  <div style={{ 
-                    width: '100%',
-                    aspectRatio: '1/1',
-                    position: 'relative',
-                    borderRadius: '4px',
-                    overflow: 'hidden',
-                    border: '2px solid rgba(255, 255, 255, 0.5)'
-                  }}
-                  >
+                  <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-white/50">
                     {/* Background with horizontal parallax */}
                     <div 
-                      className="section-background"
+                      className="section-background absolute top-0 left-[-5%] w-[110%] h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
                       style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: '-5%', /* Percentage-based offset for better proportions */
-                        width: '110%', /* Slightly wider for parallax effect */
-                        height: '100%',
                         backgroundImage: 'url("/images/section-background.png")',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center center', /* Center position works better with the left offset */
-                        backgroundSize: 'cover', /* Ensures the image covers the entire container */
-                        transformOrigin: 'center center',
-                        willChange: 'transform'
                       }}
                       data-speed="1.0"
                       data-direction="left"
                     />
                     {/* Title overlay - centered */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '0',
-                      left: '0',
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'transparent'
-                    }}>
-                      <h3 style={{ 
-                        fontSize: '36px', 
-                        color: COLORS.accent,
-                        fontWeight: 'bold',
-                        margin: 0,
-                        textAlign: 'center',
-                        fontWeight: "bold"
-                      }}>
+                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-transparent">
+                      <h3 className="text-[36px] text-accent font-bold m-0 text-center">
                         Our Story
                       </h3>
                     </div>
                   </div>
                   
                   {/* Text content */}
-                  <div style={{
-                    padding: '20px 0',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center'
-                  }}>
-                    <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.8', fontSize: '16px', marginBottom: '20px' }}>
+                  <div className="py-5 flex flex-col justify-center">
+                    <p className="text-white/90 leading-relaxed text-base mb-5">
                       {loremIpsum.medium}
                     </p>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: '1.8', fontSize: '16px' }}>
+                    <p className="text-white/70 leading-relaxed text-base">
                       {loremIpsum.short}
                     </p>
                   </div>
@@ -309,129 +160,57 @@ const IndexPage = () => {
 
       {/* Vision Section with Parallax - Dark background with network image */}
       <Element name="vision">
-        <section style={{ 
-          padding: '100px 0', 
-          background: 'white',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
+        <section className="py-24 bg-white relative overflow-hidden">
           {/* Parallax Background */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '100%',
-            background: `linear-gradient(135deg, rgba(${parseInt(COLORS.primary.substring(1, 3), 16)}, ${parseInt(COLORS.primary.substring(3, 5), 16)}, ${parseInt(COLORS.primary.substring(5, 7), 16)}, 0.03), rgba(255, 255, 255, 0.95))`,
-            zIndex: 1
-          }} 
-          className="parallax-bg"
-          data-speed="0.2"
+          <div 
+            className="parallax-bg absolute top-0 left-0 right-0 h-full z-[1]"
+            style={{
+              background: `linear-gradient(135deg, rgba(${parseInt(COLORS.primary.substring(1, 3), 16)}, ${parseInt(COLORS.primary.substring(3, 5), 16)}, ${parseInt(COLORS.primary.substring(5, 7), 16)}, 0.03), rgba(255, 255, 255, 0.95))`,
+            }}
+            data-speed="0.2"
           />
 
-          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 64px', position: 'relative', zIndex: 2 }}>
-            <h2 style={{ 
-              fontSize: '60px', 
-              color: COLORS.primary, 
-              marginBottom: '40px',
-              fontWeight: 'bold',
-              fontWeight: "bold"
-            }}>
+          <div className="max-w-7xl mx-auto px-16 relative z-[2]">
+            <h2 className="text-[60px] text-primary mb-10 font-bold">
               Our Vision
             </h2>
             
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column',
-              marginBottom: '60px',
-              maxWidth: '600px'
-            }}>
-              <p style={{ color: '#444', lineHeight: '1.8', fontSize: '18px', marginBottom: '20px' }}>
+            <div className="flex flex-col mb-16 max-w-[600px]">
+              <p className="text-gray-700 leading-relaxed text-lg mb-5">
                 {loremIpsum.medium}
               </p>
-              <p style={{ color: '#444', lineHeight: '1.8', fontSize: '18px' }}>
+              <p className="text-gray-700 leading-relaxed text-lg">
                 {loremIpsum.short}
               </p>
             </div>
 
-            <div style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap',
-              alignItems: 'stretch',
-              gap: '30px',
-              paddingTop: '30px'
-            }}>
+            <div className="flex flex-wrap items-stretch gap-8 pt-8">
               {/* Content wrapper */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '30px',
-                width: '100%'
-              }}>
+              <div className="grid grid-cols-2 gap-8 w-full">
                 {/* Text content */}
-                <div style={{
-                  padding: '20px 0',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center'
-                }}>
-                  <p style={{ color: '#444', lineHeight: '1.8', fontSize: '16px', marginBottom: '20px' }}>
+                <div className="py-5 flex flex-col justify-center">
+                  <p className="text-gray-700 leading-relaxed text-base mb-5">
                     {loremIpsum.medium}
                   </p>
-                  <p style={{ color: '#666', lineHeight: '1.8', fontSize: '16px' }}>
+                  <p className="text-gray-500 leading-relaxed text-base">
                     {loremIpsum.short}
                   </p>
                 </div>
                 
                 {/* Image box */}
-                <div style={{ 
-                  width: '100%',
-                  aspectRatio: '1/1',
-                  position: 'relative',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
-                  border: '2px solid rgba(3, 57, 93, 0.5)'
-                }}
-                >
+                <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-primary/50">
                   {/* Background with horizontal parallax */}
                   <div 
-                    className="section-background"
+                    className="section-background absolute top-0 left-[-5%] w-[140%] h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
                     style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: '-5%', /* Start 5% to the left */
-                      width: '140%', /* Extra width for horizontal parallax */
-                      height: '100%',
                       backgroundImage: 'url("/images/section-background-02.png")',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center center',
-                      backgroundSize: 'cover',
-                      transformOrigin: 'center center',
-                      willChange: 'transform'
                     }}
                     data-speed="1.0"
                     data-direction="right" /* Alternating direction */
                   />
                   {/* Title overlay - centered */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '0',
-                    left: '0',
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'transparent'
-                  }}>
-                    <h3 style={{ 
-                      fontSize: '36px', 
-                      color: COLORS.accent,
-                      fontWeight: 'bold',
-                      margin: 0,
-                      textAlign: 'center',
-                      fontWeight: "bold"
-                    }}>
+                  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-transparent">
+                    <h3 className="text-[36px] text-accent font-bold m-0 text-center">
                       Our Approach
                     </h3>
                   </div>
@@ -444,140 +223,57 @@ const IndexPage = () => {
 
       {/* Programs Section with Parallax - Dark background */}
       <Element name="programs">
-        <section style={{ 
-          padding: '100px 0', 
-          background: '#053A5E',
-          position: 'relative',
-          overflow: 'hidden',
-          color: 'white'
-        }}>
+        <section className="py-24 bg-[#053A5E] relative overflow-hidden text-white">
           {/* Parallax Background */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '100%',
-            background: 'transparent',
-            zIndex: 1
-          }} 
-          className="parallax-bg"
-          data-speed="0.12"
+          <div 
+            className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
+            data-speed="0.12"
           />
 
-          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 64px', position: 'relative', zIndex: 2 }}>
-            <h2 style={{ 
-              fontSize: '60px', 
-              color: 'white', 
-              marginBottom: '40px',
-              fontWeight: 'bold',
-              fontWeight: "bold"
-            }}>
+          <div className="max-w-7xl mx-auto px-16 relative z-[2]">
+            <h2 className="text-[60px] text-white mb-10 font-bold">
               Our Programs
             </h2>
             
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column',
-              marginBottom: '60px',
-              maxWidth: '600px'
-            }}>
-              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.8', fontSize: '18px', marginBottom: '20px' }}>
+            <div className="flex flex-col mb-16 max-w-[600px]">
+              <p className="text-white/90 leading-relaxed text-lg mb-5">
                 {loremIpsum.medium}
               </p>
-              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.8', fontSize: '18px' }}>
+              <p className="text-white/90 leading-relaxed text-lg">
                 {loremIpsum.short}
               </p>
             </div>
             
-            <div style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap',
-              alignItems: 'stretch',
-              gap: '30px',
-              paddingTop: '30px'
-            }}>
+            <div className="flex flex-wrap items-stretch gap-8 pt-8">
               {/* Content box with image background */}
-              <div style={{ 
-                flex: '1', 
-                minWidth: '300px',
-                maxWidth: '100%',
-                position: 'relative',
-                display: 'flex',
-                overflow: 'hidden'
-              }}>
+              <div className="flex-1 min-w-[300px] max-w-full relative flex overflow-hidden">
                 {/* Content wrapper */}
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '30px',
-                  width: '100%'
-                }}>
+                <div className="grid grid-cols-2 gap-8 w-full">
                   {/* Image box */}
-                  <div style={{ 
-                    width: '100%',
-                    aspectRatio: '1/1',
-                    position: 'relative',
-                    borderRadius: '4px',
-                    overflow: 'hidden',
-                    border: '2px solid rgba(255, 255, 255, 0.5)'
-                  }}
-                  >
+                  <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-white/50">
                     {/* Background with horizontal parallax */}
                     <div 
-                      className="section-background"
+                      className="section-background absolute top-0 left-[-5%] w-[110%] h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
                       style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: '-5%', /* Percentage-based offset for better proportions */
-                        width: '110%', /* Slightly wider for parallax effect */
-                        height: '100%',
                         backgroundImage: 'url("/images/section-background-03.png")',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center center', /* Center position works better with the left offset */
-                        backgroundSize: 'cover', /* Ensures the image covers the entire container */
-                        transformOrigin: 'center center',
-                        willChange: 'transform'
                       }}
                       data-speed="1.0"
                       data-direction="left"
                     />
                     {/* Title overlay - centered */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '0',
-                      left: '0',
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'transparent'
-                    }}>
-                      <h3 style={{ 
-                        fontSize: '36px', 
-                        color: COLORS.accent,
-                        fontWeight: 'bold',
-                        margin: 0,
-                        textAlign: 'center',
-                        fontWeight: "bold"
-                      }}>
+                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-transparent">
+                      <h3 className="text-[36px] text-accent font-bold m-0 text-center">
                         Our Focus
                       </h3>
                     </div>
                   </div>
                   
                   {/* Text content */}
-                  <div style={{
-                    padding: '20px 0',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center'
-                  }}>
-                    <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.8', fontSize: '16px', marginBottom: '20px' }}>
+                  <div className="py-5 flex flex-col justify-center">
+                    <p className="text-white/90 leading-relaxed text-base mb-5">
                       {loremIpsum.medium}
                     </p>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: '1.8', fontSize: '16px' }}>
+                    <p className="text-white/70 leading-relaxed text-base">
                       {loremIpsum.short}
                     </p>
                   </div>
@@ -590,111 +286,47 @@ const IndexPage = () => {
 
       {/* Contact Section */}
       <Element name="contact">
-        <section style={{ 
-          padding: '100px 64px', 
-          background: 'white',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 5 }}>
-            <h2 style={{ 
-              fontSize: '40px', 
-              color: COLORS.primary, 
-              marginBottom: '60px',
-              textAlign: 'center',
-              fontWeight: 'bold'
-            }}>
+        <section className="py-24 px-16 bg-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto relative z-10">
+            <h2 className="text-4xl text-primary mb-16 text-center font-bold">
               Get In Touch
             </h2>
             
-            <div style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap',
-              gap: '40px',
-              justifyContent: 'center'
-            }}>
-              <div style={{ 
-                flex: '1',
-                minWidth: '300px',
-                maxWidth: '500px'
-              }}>
-                <h3 style={{ 
-                  fontSize: '24px', 
-                  color: COLORS.primary,
-                  marginBottom: '20px'
-                }}>
+            <div className="flex flex-wrap gap-10 justify-center">
+              <div className="flex-1 min-w-[300px] max-w-[500px]">
+                <h3 className="text-2xl text-primary mb-5">
                   Contact Us
                 </h3>
-                <p style={{ color: '#555', lineHeight: '1.6', marginBottom: '30px' }}>
+                <p className="text-gray-600 leading-relaxed mb-8">
                   {loremIpsum.medium}
                 </p>
-                <div style={{ 
-                  padding: '20px',
-                  background: '#f8f9fa',
-                  borderRadius: '8px'
-                }}>
-                  <p style={{ marginBottom: '10px' }}><strong>Email:</strong> info@kaizens.com</p>
-                  <p style={{ marginBottom: '10px' }}><strong>Phone:</strong> +1 (555) 123-4567</p>
+                <div className="p-5 bg-gray-50 rounded-lg">
+                  <p className="mb-2.5"><strong>Email:</strong> info@kaizens.com</p>
+                  <p className="mb-2.5"><strong>Phone:</strong> +1 (555) 123-4567</p>
                   <p><strong>Address:</strong> 123 Innovation St, Tech City, TC 12345</p>
                 </div>
               </div>
               
-              <div style={{ 
-                flex: '1',
-                minWidth: '300px',
-                maxWidth: '500px',
-                background: 'white',
-                borderRadius: '8px',
-                padding: '30px',
-                boxShadow: '0 5px 20px rgba(0, 0, 0, 0.1)'
-              }}>
-                <form style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <div className="flex-1 min-w-[300px] max-w-[500px] bg-white rounded-lg p-8 shadow-lg">
+                <form className="flex flex-col gap-4">
                   <input 
                     type="text" 
                     placeholder="Your Name" 
-                    style={{ 
-                      padding: '12px 15px',
-                      borderRadius: '4px',
-                      border: '1px solid #ddd',
-                      fontSize: '16px'
-                    }} 
+                    className="px-4 py-3 rounded border border-gray-200 text-base"
                   />
                   <input 
                     type="email" 
                     placeholder="Your Email" 
-                    style={{ 
-                      padding: '12px 15px',
-                      borderRadius: '4px',
-                      border: '1px solid #ddd',
-                      fontSize: '16px'
-                    }} 
+                    className="px-4 py-3 rounded border border-gray-200 text-base"
                   />
                   <textarea 
                     placeholder="Your Message" 
                     rows={5}
-                    style={{ 
-                      padding: '12px 15px',
-                      borderRadius: '4px',
-                      border: '1px solid #ddd',
-                      fontSize: '16px',
-                      resize: 'vertical'
-                    }} 
+                    className="px-4 py-3 rounded border border-gray-200 text-base resize-y"
                   />
                   <button 
                     type="submit"
-                    style={{ 
-                      background: COLORS.tertiary,
-                      color: 'white',
-                      border: 'none',
-                      padding: '14px 20px',
-                      borderRadius: '4px',
-                      fontSize: '16px',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                      transition: 'background 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => e.target.style.background = COLORS.accent}
-                    onMouseLeave={(e) => e.target.style.background = COLORS.primary}
+                    className="bg-tertiary hover:bg-accent text-white border-none py-3.5 px-5 rounded text-base font-medium cursor-pointer transition-colors duration-200 ease-in-out"
                   >
                     Send Message
                   </button>

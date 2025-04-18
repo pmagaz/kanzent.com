@@ -1,10 +1,5 @@
 import React, { useRef, useEffect, useState } from "react"
-
-// Define color constants
-const COLORS = {
-  main: '#03395d',
-  accent: '#65d0ff',
-};
+import { COLORS } from "../../const/colors"
 
 const AnimatedBackground = () => {
   const canvasRef = useRef(null)
@@ -231,15 +226,7 @@ const AnimatedBackground = () => {
   return (
     <canvas 
       ref={canvasRef} 
-      style={{ 
-        position: 'absolute', 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '100%',
-        background: 'transparent',
-        zIndex: 1
-      }} 
+      className="absolute top-0 left-0 w-full h-full bg-transparent z-10"
     />
   )
 }

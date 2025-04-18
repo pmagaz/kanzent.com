@@ -1,12 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Link as ScrollLink } from "react-scroll"
-
-// Define color constants
-const COLORS = {
-  main: '#03395dfb',
-  accent: '#FF499E',
-};
+import { COLORS } from "../../const/colors"
 
 const Header = () => {
   const [scrolled, setScrolled] = React.useState(false);
@@ -28,43 +23,24 @@ const Header = () => {
   }, []);
   
   return (
-    <header style={{ 
-      position: 'fixed', 
-      top: 0, 
-      left: 0, 
-      right: 0, 
-      zIndex: 20, 
-      padding: '16px 32px',
-      background: '#F8FAFB',
-      backdropFilter: scrolled ? 'blur(5px)' : 'none',
-      boxShadow: scrolled ? '0 2px 10px rgba(0, 0, 0, 0.05)' : 'none',
-      transition: 'all 0.3s ease'
-    }}>
-      <div style={{ 
-        maxWidth: '1280px', 
-        margin: '0 auto', 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center' 
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Link to="/" style={{ 
-            textDecoration: 'none', 
-            display: 'flex', 
-            alignItems: 'center',
-            opacity: scrolled ? 1 : 0,
-            transition: 'opacity 0.3s ease'
-          }}>
+    <header className={`fixed top-0 left-0 right-0 z-20 px-8 py-4 bg-background transition-all duration-300 ease-in-out ${
+      scrolled ? 'backdrop-blur-sm shadow-sm' : ''
+    }`}>
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="flex items-center">
+          <Link to="/" className={`no-underline flex items-center transition-opacity duration-300 ease-in-out ${
+            scrolled ? 'opacity-100' : 'opacity-0'
+          }`}>
             <img 
               src="/images/KaizensLogoHeader.svg" 
               alt="Kaizens Logo" 
-              style={{ height: '40px', width: 'auto', marginRight: '10px' }} 
+              className="h-10 w-auto mr-2.5"
             />
           </Link>
         </div>
         
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <nav style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="flex items-center">
+          <nav className="flex items-center">
             {[
               { name: 'Solutions', target: 'solutions' },
               { name: 'Vision', target: 'vision' },
@@ -78,22 +54,13 @@ const Header = () => {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  style={{ 
-                    color: COLORS.primary, 
-                    textDecoration: 'none', 
-                    padding: '0 16px',
-                    cursor: 'pointer',
-                    fontWeight: '500',
-                    transition: 'color 0.2s ease'
-                  }}
-                  activeStyle={{ color: COLORS.accent }}
-                  onMouseEnter={(e) => e.target.style.color = COLORS.accent}
-                  onMouseLeave={(e) => e.target.style.color = COLORS.primary}
+                  className="text-primary px-4 no-underline cursor-pointer font-medium transition-colors duration-200 ease-in-out hover:text-accent"
+                  activeClass="text-accent"
                 >
                   {item.name}
                 </ScrollLink>
                 {index < arr.length - 1 && (
-                  <div style={{ height: '16px', width: '1px', background: '#ddd' }}></div>
+                  <div className="h-4 w-px bg-gray-200"></div>
                 )}
               </React.Fragment>
             ))}

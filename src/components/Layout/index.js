@@ -4,7 +4,7 @@ import Footer from "../Footer"
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ background: 'white', color: '#111', minHeight: '100vh' }}>
+    <div className="bg-white text-gray-900 min-h-screen">
       <Header />
       <main>{children}</main>
       <Footer />

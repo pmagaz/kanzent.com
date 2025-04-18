@@ -101,24 +101,24 @@
   
   /* Hero animations */
   .hero-logo-animation {
-    animation: fadeUpIn 500ms ease-out forwards;
+    animation: fadeUpIn 500ms ease forwards;
     opacity: 0;
   }
   
   .hero-title-animation {
-    animation: fadeLeftIn 500ms ease-out 200ms forwards;
+    animation: fadeRightIn 500ms ease forwards;
     opacity: 0;
   }
   
   .hero-slogan-animation {
-    animation: simpleFadeIn 700ms ease-out 400ms forwards;
+    animation: simpleFadeIn 500ms ease forwards;
     opacity: 0;
   }
   
   @keyframes fadeUpIn {
     0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(50px);
     }
     100% {
       opacity: 1;
@@ -126,10 +126,10 @@
     }
   }
   
-  @keyframes fadeLeftIn {
+  @keyframes fadeRightIn {
     0% {
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(-250px);
     }
     100% {
       opacity: 1;

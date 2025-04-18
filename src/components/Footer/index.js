@@ -1,106 +1,59 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Link as ScrollLink } from "react-scroll"
-
-// Define color constants
-const COLORS = {
-  main: '#03395dfb',
-  accent: '#65d0ffff',
-};
+import { COLORS } from "../../const/colors"
 
 const Footer = () => {
   return (
-    <footer style={{ 
-      background: '#f1f5f9',
-      padding: '60px 0 30px',
-      borderTop: '1px solid #e5e7eb'
-    }}>
-      <div style={{ 
-        maxWidth: '1200px', 
-        margin: '0 auto',
-        padding: '0 32px'
-      }}>
-        <div style={{ 
-          display: 'flex', 
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          gap: '40px',
-          marginBottom: '50px'
-        }}>
-          <div style={{ flex: '1', minWidth: '250px', maxWidth: '400px' }}>
-            <Link to="/" style={{ display: 'inline-block', marginBottom: '20px' }}>
+    <footer className="bg-slate-100 py-16 pb-8 border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="flex flex-wrap justify-between gap-10 mb-12">
+          <div className="flex-1 min-w-[250px] max-w-[400px]">
+            <Link to="/" className="inline-block mb-5">
               <img 
                 src="/images/KaizensLogoHeader.svg" 
                 alt="Kaizens Logo" 
-                style={{ height: '40px', width: 'auto' }} 
+                className="h-10 w-auto" 
               />
             </Link>
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.7',
-              marginBottom: '20px'
-            }}>
+            <p className="text-gray-600 leading-relaxed mb-5">
               Kaizens is dedicated to helping organizations achieve continuous improvement 
               through small, incremental changes that lead to significant long-term results.
             </p>
-            <div style={{ display: 'flex', gap: '15px' }}>
+            <div className="flex gap-4">
               {['twitter', 'facebook', 'linkedin', 'instagram'].map(platform => (
                 <a 
                   key={platform} 
                   href={`https://${platform}.com`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    background: COLORS.primary,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    transition: 'background 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => e.target.style.background = COLORS.accent}
-                  onMouseLeave={(e) => e.target.style.background = COLORS.primary}
+                  className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white transition-colors duration-200 hover:bg-secondary"
                 >
-                  <span style={{ fontSize: '14px' }}>{platform.charAt(0).toUpperCase()}</span>
+                  <span className="text-sm">{platform.charAt(0).toUpperCase()}</span>
                 </a>
               ))}
             </div>
           </div>
           
-          <div style={{ flex: '1', minWidth: '200px', maxWidth: '250px' }}>
-            <h3 style={{ 
-              color: COLORS.primary, 
-              fontSize: '20px', 
-              fontWeight: 'bold',
-              marginBottom: '20px'
-            }}>
+          <div className="flex-1 min-w-[200px] max-w-[250px]">
+            <h3 className="text-primary text-xl font-bold mb-5">
               Quick Links
             </h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <ul className="list-none p-0 m-0">
               {[
                 { name: 'Solutions', target: 'solutions' },
                 { name: 'Vision', target: 'vision' },
                 { name: 'Programs', target: 'programs' },
                 { name: 'Contact Us', target: 'contact' }
               ].map(item => (
-                <li key={item.name} style={{ marginBottom: '12px' }}>
+                <li key={item.name} className="mb-3">
                   <ScrollLink 
                     to={item.target}
                     spy={true}
                     smooth={true}
                     offset={-70}
                     duration={800}
-                    style={{ 
-                      color: '#555', 
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => e.target.style.color = COLORS.accent}
-                    onMouseLeave={(e) => e.target.style.color = '#555'}
+                    className="text-gray-600 no-underline transition-colors duration-200 cursor-pointer hover:text-secondary"
                   >
                     {item.name}
                   </ScrollLink>
@@ -109,32 +62,21 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div style={{ flex: '1', minWidth: '200px', maxWidth: '250px' }}>
-            <h3 style={{ 
-              color: COLORS.primary, 
-              fontSize: '20px', 
-              fontWeight: 'bold',
-              marginBottom: '20px'
-            }}>
+          <div className="flex-1 min-w-[200px] max-w-[250px]">
+            <h3 className="text-primary text-xl font-bold mb-5">
               Resources
             </h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <ul className="list-none p-0 m-0">
               {[
                 'Blog',
                 'Case Studies',
                 'Whitepapers',
                 'Newsletter'
               ].map(item => (
-                <li key={item} style={{ marginBottom: '12px' }}>
+                <li key={item} className="mb-3">
                   <Link 
                     to="/"
-                    style={{ 
-                      color: '#555', 
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => e.target.style.color = COLORS.accent}
-                    onMouseLeave={(e) => e.target.style.color = '#555'}
+                    className="text-gray-600 no-underline transition-colors duration-200 hover:text-secondary"
                   >
                     {item}
                   </Link>
@@ -143,32 +85,21 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div style={{ flex: '1', minWidth: '200px', maxWidth: '250px' }}>
-            <h3 style={{ 
-              color: COLORS.primary, 
-              fontSize: '20px', 
-              fontWeight: 'bold',
-              marginBottom: '20px'
-            }}>
+          <div className="flex-1 min-w-[200px] max-w-[250px]">
+            <h3 className="text-primary text-xl font-bold mb-5">
               Legal
             </h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <ul className="list-none p-0 m-0">
               {[
                 'Privacy Policy',
                 'Terms of Service',
                 'Cookie Policy',
                 'Accessibility'
               ].map(item => (
-                <li key={item} style={{ marginBottom: '12px' }}>
+                <li key={item} className="mb-3">
                   <Link 
                     to="/"
-                    style={{ 
-                      color: '#555', 
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => e.target.style.color = COLORS.accent}
-                    onMouseLeave={(e) => e.target.style.color = '#555'}
+                    className="text-gray-600 no-underline transition-colors duration-200 hover:text-secondary"
                   >
                     {item}
                   </Link>
@@ -178,13 +109,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div style={{ 
-          borderTop: '1px solid #e5e7eb',
-          paddingTop: '20px',
-          textAlign: 'center',
-          color: '#777',
-          fontSize: '14px'
-        }}>
+        <div className="border-t border-gray-200 pt-5 text-center text-gray-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Kaizens. All rights reserved.</p>
         </div>
       </div>
