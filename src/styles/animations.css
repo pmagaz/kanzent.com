@@ -101,48 +101,108 @@
   
   /* Hero animations */
   .hero-logo-animation {
-    animation: fadeUpIn 500ms ease forwards;
+    animation-name: fadeDownIn;
+    animation-duration: 600ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 200ms;
     opacity: 0;
+    transform: translateY(-80px);
   }
   
   .hero-title-animation {
-    animation: fadeRightIn 500ms ease forwards;
+    animation-name: fadeLeftIn;
+    animation-duration: 600ms;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-delay: 400ms;
     opacity: 0;
+    transform: translateX(50px);
   }
   
   .hero-slogan-animation {
-    animation: simpleFadeIn 500ms ease forwards;
+    animation-name: simpleFadeIn;
+    animation-duration: 600ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1300ms;
     opacity: 0;
   }
   
   @keyframes fadeUpIn {
-    0% {
+    from {
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(80px);
     }
-    100% {
+    to {
       opacity: 1;
       transform: translateY(0);
     }
   }
   
-  @keyframes fadeRightIn {
-    0% {
+  @keyframes fadeDownIn {
+    from {
       opacity: 0;
-      transform: translateX(-250px);
+      transform: translateY(-80px);
     }
-    100% {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeLeftIn {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
       opacity: 1;
       transform: translateX(0);
     }
   }
   
   @keyframes simpleFadeIn {
-    0% {
+    from {
       opacity: 0;
     }
-    100% {
+    to {
       opacity: 1;
     }
+  }
+  
+  /* Menu underline animation */
+  @keyframes menuUnderlineExpand {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  
+  .menu-underline-active {
+    animation: menuUnderlineExpand 0.4s ease-out forwards;
+    transform: scaleX(1) !important;
+  }
+  
+  .menu-underline-hover {
+    transform: scaleX(0.5);
+  }
+  
+  /* Hero background animation - fade from bottom to top */
+  @keyframes heroBackgroundFade {
+    from {
+      opacity: 0;
+      transform: translateY(120px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-bg-animation {
+    animation: heroBackgroundFade 600ms ease-out forwards;
   }
 }

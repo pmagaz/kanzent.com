@@ -20,12 +20,12 @@
     @apply text-xl md:text-2xl font-normal mb-8 text-kaizens-text-secondary;
   }
 
-  /* Solutions section */
-  .solutions-section {
+  /* Story section */
+  .history-section {
     @apply min-h-screen flex flex-col justify-center py-16 bg-kaizens-bg-light;
   }
 
-  .solutions-grid {
+  .history-grid {
     @apply grid grid-cols-1 md:grid-cols-3 gap-8 mt-12;
   }
 
@@ -38,7 +38,7 @@
     @apply mt-16 text-lg space-y-4;
   }
 
-  /* Programs section */
+  /* Developments section */
   .programs-section {
     @apply min-h-screen flex flex-col justify-center py-16 bg-kaizens-bg-light;
   }

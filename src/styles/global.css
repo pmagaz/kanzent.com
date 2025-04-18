@@ -18,21 +18,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import animations */
+@import './animations.css';
+
 @layer base {
 
   html,
   body {
-    @apply bg-black;
-    /* Force black background */
+    @apply bg-background text-primary;
     margin: 0;
     padding: 0;
     font-family: 'Kinetika', sans-serif;
-    color: white;
     min-height: 100vh;
   }
 
   #___gatsby,
   #gatsby-focus-wrapper {
-    @apply bg-black min-h-screen;
+    @apply bg-background min-h-screen;
   }
 }

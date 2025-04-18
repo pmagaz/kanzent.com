@@ -13,12 +13,17 @@ const loremIpsum = {
 };
 
 const IndexPage = () => {
-  // Handle parallax initialization
+  // Handle parallax and animation initialization
   useEffect(() => {
     // Make sure the script is loaded
     if (typeof window !== 'undefined') {
       // Force a scroll event to initialize parallax
       window.dispatchEvent(new Event('scroll'));
+      
+      // Initialize animations immediately 
+      if (typeof window.initAnimations === 'function') {
+        window.initAnimations();
+      }
       
       // Also initialize on load for good measure
       window.addEventListener('load', () => {
@@ -27,9 +32,23 @@ const IndexPage = () => {
         // Force another update after a short delay to catch any React rendering delays
         setTimeout(() => {
           window.dispatchEvent(new Event('scroll'));
+          
+          // Initialize animations again to ensure they work
+          if (typeof window.initAnimations === 'function') {
+            window.initAnimations();
+          }
         }, 200);
       });
     }
+    
+    // Add animation trigger with slight delay for Gatsby rendering
+    const animationTimer = setTimeout(() => {
+      if (typeof window.initAnimations === 'function') {
+        window.initAnimations();
+      }
+    }, 100);
+    
+    return () => clearTimeout(animationTimer);
   }, []);
   
   return (
@@ -41,10 +60,10 @@ const IndexPage = () => {
       >
         {/* Background image with parallax zoom effect */}
         <div 
-          className="parallax-zoom-bg absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover z-[1] origin-center backface-hidden"
+          className="parallax-zoom-bg absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover z-[1] origin-center backface-hidden hero-bg-animation"
           style={{
             backgroundImage: 'url("/images/hero-background.png")',
-            backgroundPosition: 'center 50px', /* Offset by 50px from the top */
+            backgroundPosition: 'center 75px', /* Offset by 75px from the top */
           }}
           data-zoom="1.5"
         />
@@ -55,25 +74,29 @@ const IndexPage = () => {
           <img 
             src="/images/KaizensLogo.svg" 
             alt="Kaizens Logo" 
-            className="hero-logo-animation h-[275px] w-auto mr-[60px]"
+            className="hero-logo-animation h-[250px] w-auto mr-[70px]"
+            style={{ opacity: 0, transform: 'translateY(-80px)' }}
           />
           <div>
             <h1
-              className="hero-title-animation text-primary text-[60px] font-bold mb-6 leading-tight"
+              className="hero-title-animation text-primary text-[60px] font-bold mb-6 leading-none"
+              style={{ opacity: 0, transform: 'translateX(50px)' }}
             >
-              The Power<br />of Evolution
+              Continuous<br />
+              <span className="-mt-2 inline-block">Innovation</span>
             </h1>
             <p
               className="hero-slogan-animation text-primary text-[22px] mb-10 max-w-[600px] font-normal"
+              style={{ opacity: 0 }}
             >
-              Continuous Improvement
+              Engineering Crafted with Excellence
             </p>
             {/* Get Started button removed as per requirement */}
           </div>
         </div>
         <div className="absolute bottom-[30px] left-0 right-0 text-center z-10">
           <ScrollLink 
-            to="solutions"
+            to="history"
             spy={true}
             smooth={true}
             offset={-70}
@@ -95,8 +118,8 @@ const IndexPage = () => {
         </div>
       </section>
 
-      {/* Solutions Section with Parallax - Dark background with network image */}
-      <Element name="solutions">
+      {/* Story Section with Parallax - Dark background with network image */}
+      <Element name="history" id="history">
         <section className="py-24 bg-primary relative overflow-hidden text-white">
           {/* Parallax Background */}
           <div 
@@ -106,7 +129,7 @@ const IndexPage = () => {
 
           <div className="max-w-7xl mx-auto px-16 relative z-[2]">
             <h2 className="text-[60px] text-background mb-10 font-bold">
-              Our Mission
+              Our Story
             </h2>
             
             <div className="flex flex-col mb-16 max-w-[600px]">
@@ -159,7 +182,7 @@ const IndexPage = () => {
       </Element>
 
       {/* Vision Section with Parallax - Dark background with network image */}
-      <Element name="vision">
+      <Element name="vision" id="vision">
         <section className="py-24 bg-white relative overflow-hidden">
           {/* Parallax Background */}
           <div 
@@ -221,8 +244,8 @@ const IndexPage = () => {
         </section>
       </Element>
 
-      {/* Programs Section with Parallax - Dark background */}
-      <Element name="programs">
+      {/* Developments Section with Parallax - Dark background */}
+      <Element name="programs" id="programs">
         <section className="py-24 bg-[#053A5E] relative overflow-hidden text-white">
           {/* Parallax Background */}
           <div 
@@ -232,7 +255,7 @@ const IndexPage = () => {
 
           <div className="max-w-7xl mx-auto px-16 relative z-[2]">
             <h2 className="text-[60px] text-white mb-10 font-bold">
-              Our Programs
+              Our Developments
             </h2>
             
             <div className="flex flex-col mb-16 max-w-[600px]">
@@ -285,7 +308,7 @@ const IndexPage = () => {
       </Element>
 
       {/* Contact Section */}
-      <Element name="contact">
+      <Element name="contact" id="contact">
         <section className="py-24 px-16 bg-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto relative z-10">
             <h2 className="text-4xl text-primary mb-16 text-center font-bold">

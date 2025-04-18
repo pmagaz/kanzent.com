@@ -41,9 +41,9 @@ const Footer = () => {
             </h3>
             <ul className="list-none p-0 m-0">
               {[
-                { name: 'Solutions', target: 'solutions' },
+                { name: 'Story', target: 'history' },
                 { name: 'Vision', target: 'vision' },
-                { name: 'Programs', target: 'programs' },
+                { name: 'Developments', target: 'programs' },
                 { name: 'Contact Us', target: 'contact' }
               ].map(item => (
                 <li key={item.name} className="mb-3">

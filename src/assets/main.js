@@ -2,12 +2,21 @@
 // This script guarantees parallax effects will work
 
 // Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', initParallax);
-window.addEventListener('load', initParallax);
+document.addEventListener('DOMContentLoaded', () => {
+  initParallax();
+  initAnimations();
+});
+window.addEventListener('load', () => {
+  initParallax();
+  initAnimations();
+});
 
 // If the document is already loaded, init immediately
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  setTimeout(initParallax, 1);
+  setTimeout(() => {
+    initParallax();
+    initAnimations();
+  }, 1);
 }
 
 // Make the function globally accessible
@@ -150,5 +159,90 @@ if (typeof window !== 'undefined') {
   window.history.pushState = function() {
     originalPushState.apply(this, arguments);
     initParallax();
+    initAnimations();
   };
+  
+  // Initialize scroll event to update active section
+  // This helps with the menu highlighting
+  const triggerScrollEvent = () => {
+    window.dispatchEvent(new Event('scroll'));
+  };
+  
+  // Set up a periodic trigger to ensure scroll events happen
+  // This helps with scroll spy in react-scroll
+  let scrollUpdateInterval;
+  document.addEventListener('DOMContentLoaded', () => {
+    scrollUpdateInterval = setInterval(triggerScrollEvent, 300);
+    
+    // Force parallax re-init
+    if (typeof window.initParallax === 'function') {
+      window.initParallax();
+    }
+    
+    // Stop the interval after 5 seconds - everything should be stable by then
+    setTimeout(() => {
+      if (scrollUpdateInterval) {
+        clearInterval(scrollUpdateInterval);
+      }
+    }, 5000);
+  });
+}
+
+// Make animations function globally accessible
+window.initAnimations = initAnimations;
+
+// Function to ensure hero animations work correctly
+function initAnimations() {
+  // Get hero elements
+  const logoElement = document.querySelector('.hero-logo-animation');
+  const titleElement = document.querySelector('.hero-title-animation');
+  const sloganElement = document.querySelector('.hero-slogan-animation');
+  
+  // Reset animations by removing and re-adding classes
+  if (logoElement) {
+    logoElement.style.opacity = '0';
+    logoElement.style.transform = 'translateY(-80px)';
+    
+    // Force a reflow to ensure animation restarts
+    void logoElement.offsetWidth;
+    
+    // Re-apply animation styles
+    setTimeout(() => {
+      logoElement.style.animationName = 'fadeDownIn';
+      logoElement.style.animationDuration = '600ms';
+      logoElement.style.animationTimingFunction = 'ease-out';
+      logoElement.style.animationFillMode = 'forwards';
+    }, 200);
+  }
+  
+  if (titleElement) {
+    titleElement.style.opacity = '0';
+    titleElement.style.transform = 'translateX(50px)';
+    
+    // Force a reflow
+    void titleElement.offsetWidth;
+    
+    // Re-apply animation styles
+    setTimeout(() => {
+      titleElement.style.animationName = 'fadeLeftIn';
+      titleElement.style.animationDuration = '600ms';
+      titleElement.style.animationTimingFunction = 'ease';
+      titleElement.style.animationFillMode = 'forwards';
+    }, 600);
+  }
+  
+  if (sloganElement) {
+    sloganElement.style.opacity = '0';
+    
+    // Force a reflow
+    void sloganElement.offsetWidth;
+    
+    // Re-apply animation styles
+    setTimeout(() => {
+      sloganElement.style.animationName = 'simpleFadeIn';
+      sloganElement.style.animationDuration = '600ms';
+      sloganElement.style.animationTimingFunction = 'ease-out';
+      sloganElement.style.animationFillMode = 'forwards';
+    }, 1500);
+  }
 }

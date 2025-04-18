@@ -61,7 +61,7 @@
     @apply flex-1;
   }
 
-  /* Programs list styles */
+  /* Developments list styles */
   .programs-list {
     @apply mt-16 space-y-8;
   }
