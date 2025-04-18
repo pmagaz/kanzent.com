@@ -1,0 +1,2 @@
+# kaizens
+Kaizens landing page
