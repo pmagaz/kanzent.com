@@ -32,6 +32,11 @@ function initParallax() {
     zoomBg.style.willChange = 'transform';
     zoomBg.style.transition = 'transform 0.2s ease-out'; // Medium transition speed
     zoomBg.style.transformOrigin = 'center center';
+    
+    // Don't override opacity or transform animations that are already applied
+    if (!zoomBg.style.opacity && !zoomBg.style.transform) {
+      zoomBg.style.opacity = '1';
+    }
   }
   
   // Apply styles to section backgrounds for smoother movement
@@ -98,13 +103,38 @@ function initParallax() {
         // Apply zoom effect - enhanced calculation with full multiplier for maximum effect
         // This ensures zoom continues until the section is completely off-screen
         const scale = 1 + (heroScrollProgress * (maxZoom - 1) * 1.0);
-        zoomBg.style.transform = `scale(${scale})`;
+        
+        // If we're in animation phase, preserve the Y transform
+        const currentTransform = zoomBg.style.transform;
+        if (currentTransform && currentTransform.includes('translateY')) {
+          // Extract translateY value
+          const translateMatch = currentTransform.match(/translateY\(([^)]+)\)/);
+          if (translateMatch && translateMatch[1]) {
+            zoomBg.style.transform = `translateY(${translateMatch[1]}) scale(${scale})`;
+          } else {
+            zoomBg.style.transform = `scale(${scale})`;
+          }
+        } else {
+          zoomBg.style.transform = `scale(${scale})`;
+        }
       } else {
         // Fallback if hero section not found (matching the faster speed)
         const zoomFactor = Math.min(scrollY / (window.innerHeight * 0.8), 1);
         const maxZoom = zoomBg.getAttribute('data-zoom') || 1.5;
         const scale = 1 + (zoomFactor * (maxZoom - 1) * 1.0);
-        zoomBg.style.transform = `scale(${scale})`;
+        
+        // Same transform preservation as above
+        const currentTransform = zoomBg.style.transform;
+        if (currentTransform && currentTransform.includes('translateY')) {
+          const translateMatch = currentTransform.match(/translateY\(([^)]+)\)/);
+          if (translateMatch && translateMatch[1]) {
+            zoomBg.style.transform = `translateY(${translateMatch[1]}) scale(${scale})`;
+          } else {
+            zoomBg.style.transform = `scale(${scale})`;
+          }
+        } else {
+          zoomBg.style.transform = `scale(${scale})`;
+        }
       }
     }
     
@@ -197,6 +227,7 @@ function initAnimations() {
   const logoElement = document.querySelector('.hero-logo-animation');
   const titleElement = document.querySelector('.hero-title-animation');
   const sloganElement = document.querySelector('.hero-slogan-animation');
+  const heroBgElement = document.getElementById('hero-bg');
   
   // Reset animations by removing and re-adding classes
   if (logoElement) {
@@ -212,6 +243,23 @@ function initAnimations() {
       logoElement.style.animationDuration = '600ms';
       logoElement.style.animationTimingFunction = 'ease-out';
       logoElement.style.animationFillMode = 'forwards';
+    }, 200);
+  }
+  
+  // Handle hero background animation
+  if (heroBgElement) {
+    // Set initial state
+    heroBgElement.style.opacity = '0';
+    heroBgElement.style.transform = 'translateY(80px)';
+    
+    // Force reflow
+    void heroBgElement.offsetWidth;
+    
+    // Animate
+    setTimeout(() => {
+      heroBgElement.style.transition = 'opacity 600ms ease-out, transform 600ms ease-out';
+      heroBgElement.style.opacity = '1';
+      heroBgElement.style.transform = 'translateY(0)';
     }, 200);
   }
   

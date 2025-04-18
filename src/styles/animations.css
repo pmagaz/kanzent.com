@@ -190,7 +190,7 @@
     transform: scaleX(0.5);
   }
   
-  /* Hero background animation - fade from bottom to top */
+  /* Hero background animation - just fade */
   @keyframes heroBackgroundFade {
     from {
       opacity: 0;
@@ -201,6 +201,11 @@
   }
   
   .hero-bg-animation {
-    animation: heroBackgroundFade 600ms ease-out forwards;
+    animation-name: heroBackgroundFade;
+    animation-duration: 600ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 200ms;
+    opacity: 0;
   }
 }

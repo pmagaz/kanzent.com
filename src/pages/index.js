@@ -60,12 +60,13 @@ const IndexPage = () => {
       >
         {/* Background image with parallax zoom effect */}
         <div 
-          className="parallax-zoom-bg absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover z-[1] origin-center backface-hidden hero-bg-animation"
+          className="parallax-zoom-bg absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover z-[1] origin-center backface-hidden"
           style={{
             backgroundImage: 'url("/images/hero-background.png")',
-            backgroundPosition: 'center 75px', /* Offset by 75px from the top */
+            backgroundPosition: 'center 75px' /* Offset by 75px from the top */
           }}
           data-zoom="1.5"
+          id="hero-bg"
         />
         
         {/* No dark overlay as per requirement */}
@@ -74,7 +75,7 @@ const IndexPage = () => {
           <img 
             src="/images/KaizensLogo.svg" 
             alt="Kaizens Logo" 
-            className="hero-logo-animation h-[250px] w-auto mr-[70px]"
+            className="hero-logo-animation h-[275px] w-auto mr-[70px]"
             style={{ opacity: 0, transform: 'translateY(-80px)' }}
           />
           <div>
@@ -120,7 +121,7 @@ const IndexPage = () => {
 
       {/* Story Section with Parallax - Dark background with network image */}
       <Element name="history" id="history">
-        <section className="py-24 bg-primary relative overflow-hidden text-white">
+        <section className="py-24 bg-primary relative overflow-hidden text-white border-b-4 border-accent">
           {/* Parallax Background */}
           <div 
             className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
@@ -145,7 +146,7 @@ const IndexPage = () => {
               {/* Content box with image background */}
               <div className="flex-1 min-w-[300px] max-w-full relative flex overflow-hidden">
                 {/* Content wrapper */}
-                <div className="grid grid-cols-2 gap-8 w-full">
+                <div className="grid grid-cols-2 gap-[50px] w-full">
                   {/* Image box */}
                   <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-white/50">
                     {/* Background with horizontal parallax */}
@@ -183,7 +184,7 @@ const IndexPage = () => {
 
       {/* Vision Section with Parallax - Dark background with network image */}
       <Element name="vision" id="vision">
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-24 bg-white relative overflow-hidden border-b-4 border-primary">
           {/* Parallax Background */}
           <div 
             className="parallax-bg absolute top-0 left-0 right-0 h-full z-[1]"
@@ -209,7 +210,7 @@ const IndexPage = () => {
 
             <div className="flex flex-wrap items-stretch gap-8 pt-8">
               {/* Content wrapper */}
-              <div className="grid grid-cols-2 gap-8 w-full">
+              <div className="grid grid-cols-2 gap-[50px] w-full">
                 {/* Text content */}
                 <div className="py-5 flex flex-col justify-center">
                   <p className="text-gray-700 leading-relaxed text-base mb-5">
@@ -246,7 +247,7 @@ const IndexPage = () => {
 
       {/* Developments Section with Parallax - Dark background */}
       <Element name="programs" id="programs">
-        <section className="py-24 bg-[#053A5E] relative overflow-hidden text-white">
+        <section className="py-24 bg-[#053A5E] relative overflow-hidden text-white border-b-4 border-accent">
           {/* Parallax Background */}
           <div 
             className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
@@ -271,7 +272,7 @@ const IndexPage = () => {
               {/* Content box with image background */}
               <div className="flex-1 min-w-[300px] max-w-full relative flex overflow-hidden">
                 {/* Content wrapper */}
-                <div className="grid grid-cols-2 gap-8 w-full">
+                <div className="grid grid-cols-2 gap-[50px] w-full">
                   {/* Image box */}
                   <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-white/50">
                     {/* Background with horizontal parallax */}
