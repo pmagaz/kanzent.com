@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="0 0 1000.9628 1384.2666"
+   id="svg15"
+   sodipodi:docname="KaizensLogo.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   width="1000.9628"
+   height="1384.2666"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.24"
+     inkscape:cx="1591.6667"
+     inkscape:cy="1150"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_2">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="1000.9628"
+       height="1384.2666"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs12">
+    <linearGradient
+       id="linear-gradient"
+       x1="1300.98"
+       y1="831.87"
+       x2="633.90997"
+       y2="377.89001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(512.97783,232.09592)">
+      <stop
+         offset="0"
+         stop-color="#418eea"
+         id="stop13"
+         style="stop-color:#6ac5f7;stop-opacity:1;" />
+      <stop
+         offset="0.19683258"
+         stop-color="#418eea"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#0037c0"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-2"
+       x1="827.15997"
+       y1="200.99001"
+       x2="376.88"
+       y2="879.17999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(512.97783,232.09592)">
+      <stop
+         offset="0.12644546"
+         stop-color="#6ac5f7"
+         id="stop3"
+         style="stop-color:#65d0ff;stop-opacity:1;" />
+      <stop
+         offset="1"
+         stop-color="#1041d2"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-3"
+       x1="206.53999"
+       y1="682.44"
+       x2="884.72998"
+       y2="1112.33"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(512.97783,232.09592)">
+      <stop
+         offset="0"
+         stop-color="#6ac5f7"
+         id="stop5" />
+      <stop
+         offset="0.19738059"
+         stop-color="#4b97ea"
+         id="stop6" />
+      <stop
+         offset=".78"
+         stop-color="#2059d8"
+         id="stop7" />
+      <stop
+         offset="1"
+         stop-color="#1041d2"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-4"
+       x1="673.06"
+       y1="1298.97"
+       x2="1125.1899"
+       y2="617.08002"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(512.97783,232.09592)">
+      <stop
+         offset="0.12192057"
+         stop-color="#6ac5f7"
+         id="stop9"
+         style="stop-color:#65d0ff;stop-opacity:1;" />
+      <stop
+         offset="0.41703704"
+         stop-color="#418ae6"
+         id="stop10" />
+      <stop
+         offset=".76"
+         stop-color="#1d55d7"
+         id="stop11" />
+      <stop
+         offset=".94"
+         stop-color="#1041d2"
+         id="stop12" />
+    </linearGradient>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g
+     id="g15"
+     transform="translate(-762.98787,-482.09592)">
+    <g
+       id="Layer_2">
+      <path
+         d="m 1667.6278,1275.836 c 33.7,-59.7901 78.8,-179.0001 14.85,-320.87008 -59.41,-131.8 -181.93,-204.27 -250.8,-236.09 -48.66,-31.25 -106.56,-49.37 -168.69,-49.37 -110.54,0 -207.66,57.38 -263.26003,143.96 31.81003,-68.85 104.27003,-191.44 236.12003,-250.86 141.82,-63.91 261,-18.88 320.82,14.81 125.03,90.89 206.3,238.3 206.3,404.68 0,109.76998 -35.37,211.27998 -95.35,293.75008 z"
+         fill="url(#linear-gradient)"
+         id="path12"
+         sodipodi:nodetypes="cccscccscc"
+         style="fill:url(#linear-gradient)" />
+      <path
+         d="m 1556.6778,577.40592 c -59.82,-33.68 -179,-78.72 -320.82,-14.81 -131.85,59.43 -204.32,182.01 -236.12003,250.86 l -0.02,0.02 c -31.21997,48.65 -49.32996,106.51 -49.32996,168.61 0,110.56998 57.38999,207.70998 144.01999,263.28998 -68.84,-31.81 -191.47997,-104.27 -250.92997,-236.15 -63.88,-141.72998 -18.93,-260.85998 14.73,-320.70998 v -0.02 c 90.88998,-125.08 238.32997,-206.4 404.77997,-206.4 109.75,0 211.23,35.36 293.69,95.31 z"
+         fill="url(#linear-gradient-2)"
+         id="path13"
+         sodipodi:nodetypes="ccccsccccsc"
+         style="fill:url(#linear-gradient-2)" />
+      <path
+         d="m 1526.2278,1150.7459 c -31.82,68.85 -104.29,191.4201 -236.12,250.85 -141.79,63.9 -260.95,18.89 -320.77,-14.77 -125.04997,-90.8899 -206.34997,-238.32 -206.34997,-404.72998 0,-109.69 35.33,-211.13 95.23,-293.58 -33.65,59.86 -78.61,178.98 -14.73,320.70998 59.44,131.88 182.08997,204.35 250.92997,236.15 0,0.02 0.02,0.02 0.02,0.02 48.65,31.1901 106.48,49.3001 168.56,49.3001 110.52,0 207.65,-57.3601 263.24,-143.9401 z"
+         fill="url(#linear-gradient-3)"
+         id="path14"
+         sodipodi:nodetypes="cccsccccscc"
+         style="fill:url(#linear-gradient-3)" />
+      <path
+         d="m 1667.6278,1275.836 c -90.87,124.9999 -238.27,206.2599 -404.64,206.2599 -109.72,0 -211.2,-35.34 -293.66,-95.28 59.82,33.67 178.98,78.67 320.77,14.77 131.83,-59.4299 204.3,-182 236.12,-250.85 31.22,-48.65 49.34,-106.53 49.34,-168.65998 0,-110.51 -57.35,-207.61 -143.89,-263.21 68.87,31.82 191.39,104.29 250.8,236.09 63.94,141.86998 18.85,261.07998 -14.85,320.87008 z"
+         fill="url(#linear-gradient-4)"
+         id="path15"
+         style="fill:url(#linear-gradient-4)"
+         sodipodi:nodetypes="cscccscccc" />
+      <polygon
+         points="345.24,457.01 345.23,457.01 345.23,455.82 "
+         fill="#010201"
+         id="polygon15"
+         transform="translate(512.97783,232.09592)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:266.667px;font-family:Kinetika;-inkscape-font-specification:Kinetika;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.99;fill:#03395d;fill-opacity:0.984314"
+         x="764.35736"
+         y="1747.6545"
+         id="text158-2-0-3"><tspan
+           sodipodi:role="line"
+           id="tspan158-3-5-9"
+           x="764.35736"
+           y="1747.6545"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:266.667px;font-family:Kinetika;-inkscape-font-specification:Kinetika;fill:#03395d;fill-opacity:0.984314">Kaizens</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:272;font-stretch:normal;font-size:61.3333px;line-height:158.317px;font-family:Kinetika;-inkscape-font-specification:'Kinetika weight=272';text-align:start;letter-spacing:0.0937824px;word-spacing:0.0562694px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.99;fill:#2a3b4a;fill-opacity:1;stroke-width:0.937824"
+         x="734.6911"
+         y="1989.2339"
+         id="text158-2-0-3-3"
+         transform="scale(1.0662985,0.9378237)"><tspan
+           sodipodi:role="line"
+           id="tspan158-3-5-9-6"
+           x="734.6911"
+           y="1989.2339"
+           style="font-style:normal;font-variant:normal;font-weight:272;font-stretch:normal;font-size:61.3333px;line-height:158.317px;font-family:Kinetika;-inkscape-font-specification:'Kinetika weight=272';letter-spacing:0.0937824px;word-spacing:0.0562694px;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;fill:#04395e;fill-opacity:1;stroke-width:0.937824"
+           dx="0.046891186"
+           dy="0.037512947"
+           rotate="0.2 0 0 0 0.2 0 0 0 0.2 0 0 0 0.2 0 0 0 0.2 0 0 0 0.2 0 0 0 0.2 0 0 0 0.2 0 0 0 0.2 0 0 0.2 0 0 0 0.2 0 0 0 0.2 0">T   E   C   H   N   O   L   O   G  I   E   S</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:272;font-stretch:normal;font-size:96px;line-height:247.8px;font-family:Kinetika;-inkscape-font-specification:'Kinetika weight=272';text-align:start;letter-spacing:0.1px;word-spacing:0.06px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.99;fill:#04395e"
+         x="1617.2974"
+         y="1839.6898"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           x="1617.2974"
+           y="1839.6898">  </tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76px;line-height:196.175px;font-family:'.Al Nile PUA';-inkscape-font-specification:'.Al Nile PUA';text-align:start;letter-spacing:0.1px;word-spacing:0.06px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.99;fill:#184fd6;fill-opacity:1"
+         x="1454.1667"
+         y="1808.3333"
+         id="text4"><tspan
+           sodipodi:role="line"
+           id="tspan4"
+           x="1454.1667"
+           y="1808.3333" /></text>
+    </g>
+  </g>
+</svg>

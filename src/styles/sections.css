@@ -1,0 +1,66 @@
+/* 
+  This file contains additional styles for sections that might be 
+  easier to manage separately from global.css
+*/
+
+@tailwind components;
+
+@layer components {
+
+  /* Hero section specific styles */
+  .hero-content {
+    @apply relative z-10 max-w-3xl text-left;
+  }
+
+  .hero-title {
+    @apply text-5xl md:text-6xl font-bold mb-4 leading-tight;
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl font-normal mb-8 text-kaizens-text-secondary;
+  }
+
+  /* Solutions section */
+  .solutions-section {
+    @apply min-h-screen flex flex-col justify-center py-16 bg-kaizens-bg-light;
+  }
+
+  .solutions-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8 mt-12;
+  }
+
+  /* Vision section */
+  .vision-section {
+    @apply min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-kaizens-bg-dark to-kaizens-bg-darker;
+  }
+
+  .vision-content {
+    @apply mt-16 text-lg space-y-4;
+  }
+
+  /* Programs section */
+  .programs-section {
+    @apply min-h-screen flex flex-col justify-center py-16 bg-kaizens-bg-light;
+  }
+
+  .programs-list {
+    @apply mt-16 space-y-8;
+  }
+
+  .program-item {
+    @apply mb-8;
+  }
+
+  .program-title {
+    @apply text-2xl font-semibold mb-2 text-kaizens-light-blue;
+  }
+
+  /* Contact section */
+  .contact-section {
+    @apply min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-kaizens-bg-dark to-kaizens-bg-darker;
+  }
+
+  .contact-form {
+    @apply max-w-xl mx-auto mt-16 flex flex-col gap-4;
+  }
+}

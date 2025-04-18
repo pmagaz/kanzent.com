@@ -1,0 +1,85 @@
+/*
+  Layout styles that work with the existing Layout component
+*/
+
+@tailwind components;
+
+@layer components {
+
+  /* Main layout class to match the existing component */
+  .layout {
+    @apply flex flex-col min-h-screen;
+  }
+
+  /* The main tag inside layout */
+  .layout main {
+    @apply flex-1;
+  }
+
+  /* Section styles */
+  .section {
+    @apply min-h-screen flex flex-col justify-center py-16;
+  }
+
+  .section-content {
+    @apply w-full max-w-6xl mx-auto px-8;
+  }
+
+  /* Section heading styles */
+  .section h2 {
+    @apply text-4xl font-bold mb-8 text-kaizens-light-blue relative;
+  }
+
+  .section h2::after {
+    @apply content-[''] absolute bottom-[-10px] left-0 w-16 h-[3px] bg-kaizens-medium-blue rounded-full;
+  }
+
+  /* Hero section styles */
+  .hero-section {
+    @apply relative h-screen flex items-center justify-center overflow-hidden px-8;
+  }
+
+  .hero-content {
+    @apply relative z-10 max-w-3xl text-left;
+  }
+
+  /* Feature grid styles */
+  .feature-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8 mt-12;
+  }
+
+  .feature-card {
+    @apply bg-kaizens-medium-blue/5 border border-kaizens-medium-blue/10 rounded-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-kaizens-dark-blue/10 hover:border-kaizens-medium-blue/20;
+  }
+
+  /* Vision content styles */
+  .vision-content {
+    @apply mt-16 flex gap-12 md:flex-row flex-col;
+  }
+
+  .vision-text {
+    @apply flex-1;
+  }
+
+  /* Programs list styles */
+  .programs-list {
+    @apply mt-16 space-y-8;
+  }
+
+  .program-item {
+    @apply mb-8;
+  }
+
+  /* Contact form styles */
+  .contact-form {
+    @apply max-w-xl mx-auto mt-16 flex flex-col gap-4;
+  }
+
+  .contact-form input {
+    @apply px-4 py-4 rounded-lg border border-kaizens-medium-blue/20 bg-kaizens-medium-blue/5 text-white focus:outline-none focus:border-kaizens-medium-blue focus:ring focus:ring-kaizens-medium-blue/10;
+  }
+
+  .cta-button {
+    @apply bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-0.5;
+  }
+}

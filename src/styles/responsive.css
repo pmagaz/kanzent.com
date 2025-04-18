@@ -1,0 +1,75 @@
+/*
+  This file contains additional responsive utilities and overrides
+  that might be useful beyond what Tailwind provides by default
+*/
+
+@tailwind utilities;
+
+@layer utilities {
+
+  /* Custom responsive container sizes */
+  .container-narrow {
+    @apply w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Additional responsive spacing */
+  .responsive-padding {
+    @apply py-8 md:py-12 lg:py-16;
+  }
+
+  .responsive-margin {
+    @apply my-8 md:my-12 lg:my-16;
+  }
+
+  /* Responsive typography helpers */
+  .text-responsive-xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  .text-responsive-lg {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold;
+  }
+
+  .text-responsive-md {
+    @apply text-xl sm:text-2xl md:text-3xl font-semibold;
+  }
+
+  .text-responsive-sm {
+    @apply text-lg sm:text-xl md:text-2xl font-medium;
+  }
+
+  /* Responsive grid layouts */
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+  }
+
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+  }
+
+  .grid-responsive-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8;
+  }
+
+  /* Responsive flex layouts */
+  .flex-responsive {
+    @apply flex flex-col md:flex-row;
+  }
+
+  .flex-responsive-reverse {
+    @apply flex flex-col md:flex-row-reverse;
+  }
+
+  /* Responsive visibility */
+  .visible-mobile {
+    @apply block md:hidden;
+  }
+
+  .visible-desktop {
+    @apply hidden md:block;
+  }
+}

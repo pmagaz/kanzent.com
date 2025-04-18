@@ -1,0 +1,69 @@
+/*
+  This file provides CSS variables as an alternative way to access the theme colors
+  defined in tailwind.config.js. This can be useful for JS access or non-Tailwind usage.
+*/
+
+:root {
+  /* Primary brand colors */
+  --color-kaizens-light-blue: #70b6f3;
+  --color-kaizens-medium-blue: #3480e3;
+  --color-kaizens-dark-blue: #0039c6;
+
+  /* Background colors */
+  --color-kaizens-bg-dark: #0d0e17;
+  --color-kaizens-bg-darker: #080912;
+  --color-kaizens-bg-light: #13141f;
+
+  /* Text colors */
+  --color-kaizens-text-primary: #ffffff;
+  --color-kaizens-text-secondary: #e1e1e6;
+  --color-kaizens-text-tertiary: #a1a1b3;
+
+  /* Action colors */
+  --color-kaizens-action-primary: #f05252;
+  --color-kaizens-action-hover: #e02424;
+
+  /* State colors */
+  --color-kaizens-success: #10b981;
+  --color-kaizens-warning: #f59e0b;
+  --color-kaizens-error: #ef4444;
+  --color-kaizens-info: #3b82f6;
+}
+
+/* 
+  These utility classes allow you to use CSS variables in cases
+  where you can't use Tailwind classes directly
+*/
+@tailwind utilities;
+
+@layer utilities {
+  .text-kaizens-brand {
+    color: var(--color-kaizens-medium-blue);
+  }
+
+  .bg-kaizens-brand {
+    background-color: var(--color-kaizens-medium-blue);
+  }
+
+  .border-kaizens-brand {
+    border-color: var(--color-kaizens-medium-blue);
+  }
+
+  /* Gradient text utility */
+  .text-kaizens-gradient {
+    background: linear-gradient(to right, var(--color-kaizens-light-blue), var(--color-kaizens-dark-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  /* Custom shadow with brand color */
+  .shadow-kaizens {
+    box-shadow: 0 4px 14px rgba(52, 128, 227, 0.15);
+  }
+
+  .shadow-kaizens-lg {
+    box-shadow: 0 10px 25px rgba(52, 128, 227, 0.2);
+  }
+}

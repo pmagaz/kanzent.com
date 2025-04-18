@@ -1,0 +1,148 @@
+/* 
+  This file contains animation-specific styles that can be imported 
+  where needed instead of putting everything in global.css
+*/
+
+@tailwind utilities;
+
+@layer utilities {
+
+  /* Fade animations */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Float animations for UI elements */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* Pulse animation for call-to-action elements */
+  .pulse-animation {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(52, 128, 227, 0.5);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Gradient animation for backgrounds */
+  .gradient-animation {
+    background: linear-gradient(-45deg, #0d0e17, #13141f, #0039c6, #3480e3);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Scroll reveal animations */
+  .reveal-bottom {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .reveal-left {
+    @apply opacity-0 -translate-x-8 transition-all duration-700 ease-out;
+  }
+
+  .reveal-right {
+    @apply opacity-0 translate-x-8 transition-all duration-700 ease-out;
+  }
+
+  .reveal-visible {
+    @apply opacity-100 translate-y-0 translate-x-0;
+  }
+  
+  /* Hero animations */
+  .hero-logo-animation {
+    animation: fadeUpIn 500ms ease-out forwards;
+    opacity: 0;
+  }
+  
+  .hero-title-animation {
+    animation: fadeLeftIn 500ms ease-out 200ms forwards;
+    opacity: 0;
+  }
+  
+  .hero-slogan-animation {
+    animation: simpleFadeIn 700ms ease-out 400ms forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeUpIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeLeftIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes simpleFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

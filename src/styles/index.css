@@ -1,0 +1,42 @@
+/*
+  Main entry point CSS file - imports all other CSS files
+*/
+
+/* Import Tailwind base directives */
+@import './global.css';
+
+/* Import component styling */
+@import './sections.css';
+@import './forms.css';
+
+/* Import utilities */
+@import './animations.css';
+@import './responsive.css';
+@import './theme-colors.css';
+
+/* 
+  You can add any page-specific styles here that don't fit
+  well in the component-based approach
+*/
+
+/* Extra styles for homepage */
+.canvas-animation {
+  @apply absolute top-0 left-0 w-full h-full z-0 block;
+}
+
+/* Special section backgrounds */
+#solutions {
+  @apply bg-kaizens-bg-light;
+}
+
+#vision {
+  @apply bg-gradient-to-b from-kaizens-bg-dark to-kaizens-bg-darker;
+}
+
+#programs {
+  @apply bg-kaizens-bg-light;
+}
+
+#contact {
+  @apply bg-gradient-to-b from-kaizens-bg-dark to-kaizens-bg-darker;
+}
