@@ -79,14 +79,14 @@ const IndexPage = () => {
           />
           <div>
             <h1
-              className="hero-title-animation text-primary text-[60px] font-bold mb-6 leading-none"
+              className="hero-title-animation text-primary text-[58px] font-bold mb-6 leading-none"
               style={{ opacity: 0, transform: 'translateX(50px)' }}
             >
               Continuous<br />
               <span className="-mt-2 inline-block">Innovation</span>
             </h1>
             <p
-              className="hero-slogan-animation text-primary text-[22px] mb-10 max-w-[600px] font-normal"
+              className="hero-slogan-animation text-primary text-[19px] mb-10 max-w-[600px] font-normal"
               style={{ opacity: 0 }}
             >
               Engineering Crafted with Excellence
