@@ -43,7 +43,7 @@ const Footer = () => {
               {[
                 { name: 'Story', target: 'history' },
                 { name: 'Vision', target: 'vision' },
-                { name: 'Developments', target: 'programs' },
+                { name: 'Technology', target: 'technology' },
                 { name: 'Contact Us', target: 'contact' }
               ].map(item => (
                 <li key={item.name} className="mb-3">
@@ -69,7 +69,7 @@ const Footer = () => {
             <ul className="list-none p-0 m-0">
               {[
                 'Blog',
-                'Case Studies',
+                'Technology',
                 'Whitepapers',
                 'Newsletter'
               ].map(item => (

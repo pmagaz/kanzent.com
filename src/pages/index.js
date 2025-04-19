@@ -1,7 +1,9 @@
 import * as React from "react"
 import { useEffect, useRef } from "react"
 import Layout from "../components/Layout"
-import AnimatedBackground from "../components/AnimatedBackground"
+import Section from "../components/Section"
+import SectionNumbers from "../components/SectionNumbers"
+import CaseStudies from "../components/CaseStudies"
 import { Link as ScrollLink, Element, Events, scrollSpy } from "react-scroll"
 import { COLORS } from "../const/colors"
 
@@ -80,7 +82,7 @@ const IndexPage = () => {
       {/* Hero Section with Zooming Background */}
       <section 
         id="hero" 
-        className="relative h-screen flex items-center overflow-hidden z-10"
+        className="relative h-screen flex items-center overflow-hidden z-10 border-t-4 border-b-4 border-accent"
         ref={heroRef}
       >
         {/* Background image with parallax zoom effect */}
@@ -96,16 +98,25 @@ const IndexPage = () => {
         
         {/* No dark overlay as per requirement */}
         
-        <div className="relative z-10 max-w-7xl mx-auto px-16 flex items-center w-full -mt-[200px]">
-          <img 
-            src="/images/KaizensLogo.svg" 
-            alt="Kaizens Logo" 
-            className="hero-logo-animation h-[300px] w-auto mr-[75px]"
-            style={{ opacity: 0, transform: 'translateY(-80px)' }}
-          />
+        <div className="relative z-10 max-w-7xl mx-auto px-10 flex items-center w-full -mt-[200px]">
+          <div className="flex flex-col items-center mr-[75px]">
+            <img 
+              src="/images/KaizensLogo.svg" 
+              alt="Kaizens Logo Icon" 
+              className="hero-logo-animation w-[200px] h-auto mb-3"
+              style={{ opacity: 0, transform: 'translateY(-80px)' }}
+            />
+            <img 
+              src="/images/KaizensName.svg"
+              alt="Kaizens Company Name" 
+              className="hero-name-animation w-[200px] h-auto"
+              style={{ opacity: 0, transform: 'translateY(80px)' }}
+            />
+          </div>
+         
           <div>
             <h1
-              className="hero-title-animation text-primary text-[58px] font-bold mb-2 leading-none"
+              className="hero-title-animation text-primary text-[50px] font-bold mb-2 leading-none"
               style={{ opacity: 0, transform: 'translateX(50px)' }}
             >
               Continuous<br />
@@ -143,196 +154,91 @@ const IndexPage = () => {
         </div>
       </section>
 
-      {/* Story Section with Parallax - Dark background with network image */}
-      <Element name="history" id="history">
-        <section className="py-24 bg-primary relative overflow-hidden text-white border-t-4 border-b-4 border-accent" style={{ marginTop: '-4px', marginBottom: '-4px' }}>
-          {/* Parallax Background */}
-          <div 
-            className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
-            data-speed="0.15"
-          />
+      {/* Story Section with Parallax */}
+      <Section 
+        id="history"
+        name="history"
+        title="Our Story"
+        backgroundColor="primary"
+        textColor="text-white"
+        paragraphs={[loremIpsum.medium, loremIpsum.short]}
+        boxTitle="Story"
+        boxImage="/images/section-background.png"
+        boxParagraphs={[loremIpsum.medium, loremIpsum.short]}
+        imageDirection="left"
+        parallaxSpeed="0.15"
+      />
 
-          <div className="max-w-7xl mx-auto px-16 relative z-[2]">
-            <h2 className="text-[60px] text-background mb-10 font-bold">
-              Our Story
-            </h2>
-            
-            <div className="flex flex-col mb-16 max-w-[600px]">
-              <p className="text-white/90 leading-relaxed text-lg mb-5">
-                {loremIpsum.medium}
-              </p>
-              <p className="text-white/90 leading-relaxed text-lg">
-                {loremIpsum.short}
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap items-stretch gap-8 pt-8">
-              <div className="flex-1 min-w-[300px] max-w-full relative">
-                {/* Content wrapper with reduced gap */}
-                <div className="grid grid-cols-2 gap-[25px] w-full border border-gray-400/30 rounded-sm">
-                  {/* Image box with overflow hidden to contain parallax */}
-                  <div className="w-full aspect-square relative overflow-hidden">
-                    {/* Background with constrained horizontal parallax */}
-                    <div 
-                      className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
-                      style={{
-                        backgroundImage: 'url("/images/section-background.png")',
-                      }}
-                      data-speed="0.5"
-                      data-direction="left"
-                    />
-                    {/* Title overlay - centered */}
-                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-transparent">
-                      <h3 className="text-[36px] text-accent font-bold m-0 text-center">
-                        Our Story
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Text content with increased right padding */}
-                  <div className="py-8 pl-12 pr-[calc(3rem+25px)] flex flex-col justify-center">
-                    <p className="text-white/90 leading-relaxed text-base mb-5">
-                      {loremIpsum.medium}
-                    </p>
-                    <p className="text-white/70 leading-relaxed text-base">
-                      {loremIpsum.short}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Element>
+      {/* Vision Section with Parallax */}
+      <Section 
+        id="vision"
+        name="vision"
+        title="Our Vision"
+        backgroundColor="white"
+        textColor=""
+        paragraphs={[loremIpsum.medium, loremIpsum.short]}
+        boxTitle="Vision"
+        boxImage="/images/section-background-02.png"
+        boxParagraphs={[loremIpsum.medium, loremIpsum.short]}
+        imageDirection="right"
+        parallaxSpeed="0.2"
+        gradientBackground={{
+          background: `linear-gradient(135deg, rgba(${parseInt(COLORS.primary.substring(1, 3), 16)}, ${parseInt(COLORS.primary.substring(3, 5), 16)}, ${parseInt(COLORS.primary.substring(5, 7), 16)}, 0.03), rgba(255, 255, 255, 0.95))`,
+        }}
+      />
+      
+      {/* Technology Section with Parallax */}
+      <Section 
+        id="technology"
+        name="technology"
+        title="Technology"
+        backgroundColor="primary"
+        textColor="text-white"
+        paragraphs={[loremIpsum.medium, loremIpsum.short]}
+        boxTitle="Technology"
+        boxImage="/images/section-background-03.png"
+        boxParagraphs={[loremIpsum.medium, loremIpsum.short]}
+        imageDirection="left"
+        parallaxSpeed="0.12"
+      />
 
-      {/* Vision Section with Parallax - Dark background with network image */}
-      <Element name="vision" id="vision">
-        <section className="py-24 bg-white relative overflow-hidden border-t-4 border-b-4 border-primary" style={{ marginTop: '-4px', marginBottom: '-4px' }}>
-          {/* Parallax Background */}
-          <div 
-            className="parallax-bg absolute top-0 left-0 right-0 h-full z-[1]"
-            style={{
-              background: `linear-gradient(135deg, rgba(${parseInt(COLORS.primary.substring(1, 3), 16)}, ${parseInt(COLORS.primary.substring(3, 5), 16)}, ${parseInt(COLORS.primary.substring(5, 7), 16)}, 0.03), rgba(255, 255, 255, 0.95))`,
-            }}
-            data-speed="0.2"
-          />
 
-          <div className="max-w-7xl mx-auto px-16 relative z-[2]">
-            <h2 className="text-[60px] text-primary mb-10 font-bold">
-              Our Vision
-            </h2>
-            
-            <div className="flex flex-col mb-16 max-w-[600px]">
-              <p className="text-gray-700 leading-relaxed text-lg mb-5">
-                {loremIpsum.medium}
-              </p>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                {loremIpsum.short}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-stretch gap-8 pt-8">
-              {/* Content wrapper with reduced gap */}
-              <div className="grid grid-cols-2 gap-[25px] w-full border border-gray-400/30 rounded-sm">
-                {/* Text content with increased right padding */}
-                <div className="py-8 pl-12 pr-[calc(3rem+25px)] flex flex-col justify-center">
-                  <p className="text-gray-700 leading-relaxed text-base mb-5">
-                    {loremIpsum.medium}
-                  </p>
-                  <p className="text-gray-500 leading-relaxed text-base">
-                    {loremIpsum.short}
-                  </p>
-                </div>
-                
-                {/* Image box with overflow hidden to contain parallax */}
-                <div className="w-full aspect-square relative overflow-hidden">
-                  {/* Background with constrained horizontal parallax */}
-                  <div 
-                    className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
-                    style={{
-                      backgroundImage: 'url("/images/section-background-02.png")',
-                    }}
-                    data-speed="0.5"
-                    data-direction="right" /* Alternating direction */
-                  />
-                  {/* Title overlay - centered */}
-                  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-transparent">
-                    <h3 className="text-[36px] text-accent font-bold m-0 text-center">
-                      Our Approach
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Element>
-
-      {/* Developments Section with Parallax - Dark background */}
-      <Element name="programs" id="programs">
-        <section className="py-24 bg-[#053A5E] relative overflow-hidden text-white border-t-4 border-b-4 border-accent" style={{ marginTop: '-4px', marginBottom: '-4px' }}>
-          {/* Parallax Background */}
-          <div 
-            className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
-            data-speed="0.12"
-          />
-
-          <div className="max-w-7xl mx-auto px-16 relative z-[2]">
-            <h2 className="text-[60px] text-white mb-10 font-bold">
-              Our Developments
-            </h2>
-            
-            <div className="flex flex-col mb-16 max-w-[600px]">
-              <p className="text-white/90 leading-relaxed text-lg mb-5">
-                {loremIpsum.medium}
-              </p>
-              <p className="text-white/90 leading-relaxed text-lg">
-                {loremIpsum.short}
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap items-stretch gap-8 pt-8">
-              <div className="flex-1 min-w-[300px] max-w-full relative">
-                {/* Content wrapper with reduced gap */}
-                <div className="grid grid-cols-2 gap-[25px] w-full border border-gray-400/30 rounded-sm">
-                  {/* Image box with overflow hidden to contain parallax */}
-                  <div className="w-full aspect-square relative overflow-hidden">
-                    {/* Background with constrained horizontal parallax */}
-                    <div 
-                      className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
-                      style={{
-                        backgroundImage: 'url("/images/section-background-03.png")',
-                      }}
-                      data-speed="0.5"
-                      data-direction="left"
-                    />
-                    {/* Title overlay - centered */}
-                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-transparent">
-                      <h3 className="text-[36px] text-accent font-bold m-0 text-center">
-                        Our Focus
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Text content with increased right padding */}
-                  <div className="py-8 pl-12 pr-[calc(3rem+25px)] flex flex-col justify-center">
-                    <p className="text-white/90 leading-relaxed text-base mb-5">
-                      {loremIpsum.medium}
-                    </p>
-                    <p className="text-white/70 leading-relaxed text-base">
-                      {loremIpsum.short}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Element>
+{/* Case Studies Section */}
+<CaseStudies 
+  id="case-studies"
+  name="case-studies"
+  title="Case Studies"
+  backgroundColor="white"
+  textColor="text-primary"
+  caseStudies={[
+    {
+      title: "OnePortfolio",
+      url: "https://oneportfolio.io",
+      text: "Portfolio Management solution",
+      icon: "/images/oneportfolio.png",
+      link: "/case-studies/oneportfolio.io"
+    },
+   
+  ]}
+/>
+      
+      {/* Stats Section */}
+<SectionNumbers 
+  id="stats"
+  name="stats"
+  backgroundImage="/images/section-background-04.png"
+  stats={[
+    { value: "15", label: "Years of Experience" },
+    { value: "10K", label: "Business Partners" },
+    { value: "25M", label: "Products Installed" },
+    { value: "22", label: "Countries World Wide" },
+    { value: "5", label: "Industry Awards" }
+  ]}
+/>
 
       {/* Contact Section */}
       <Element name="contact" id="contact">
-        <section className="py-24 px-16 bg-white relative overflow-hidden border-t-4 border-primary" style={{ marginTop: '-4px' }}>
+        <section className="py-24 px-10 bg-white relative overflow-hidden border-t-4 border-accent" style={{ marginTop: '-4px' }}>
           <div className="max-w-7xl mx-auto relative z-10">
             <h2 className="text-4xl text-primary mb-16 text-center font-bold">
               Get In Touch
@@ -372,7 +278,7 @@ const IndexPage = () => {
                   />
                   <button 
                     type="submit"
-                    className="bg-tertiary hover:bg-accent text-white border-none py-3.5 px-5 rounded text-base font-medium cursor-pointer transition-colors duration-200 ease-in-out"
+                    className="bg-secondary hover:bg-accent text-white border-none py-3.5 px-5 rounded text-base font-medium cursor-pointer transition-colors duration-200 ease-in-out"
                   >
                     Send Message
                   </button>

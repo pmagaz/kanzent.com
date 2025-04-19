@@ -109,6 +109,16 @@
     transform: translateY(-80px);
   }
 
+  .hero-name-animation {
+    animation-name: fadeUpIn;
+    animation-duration: 600ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 400ms;
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
   .hero-title-animation {
     animation-name: fadeLeftIn;
     animation-duration: 600ms;

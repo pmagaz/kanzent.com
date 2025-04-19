@@ -38,12 +38,12 @@
     @apply mt-16 text-lg space-y-4;
   }
 
-  /* Developments section */
-  .programs-section {
+  /* Technology section */
+  .technology-section {
     @apply min-h-screen flex flex-col justify-center py-16 bg-kaizens-bg-light;
   }
 
-  .programs-list {
+  .technology-list {
     @apply mt-16 space-y-8;
   }
 
@@ -72,6 +72,8 @@ section {
   position: relative;
 }
 
+
+
 /* Apply z-index and negative margins for proper section connections */
 #history {
   position: relative;
@@ -86,7 +88,7 @@ section {
   margin-bottom: -4px; /* Negative margin equal to border width */
 }
 
-#programs {
+#technology {
   position: relative;
   z-index: 10;
   margin-top: 0; /* Reset top margin */

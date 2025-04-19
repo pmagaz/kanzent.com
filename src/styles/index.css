@@ -33,7 +33,7 @@
   @apply bg-gradient-to-b from-kaizens-bg-dark to-kaizens-bg-darker;
 }
 
-#programs {
+#technology {
   @apply bg-kaizens-bg-light;
 }
 
