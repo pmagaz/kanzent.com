@@ -2,7 +2,6 @@
   This file contains animation-specific styles that can be imported 
   where needed instead of putting everything in global.css
 */
-
 @tailwind utilities;
 
 @layer utilities {
@@ -98,7 +97,7 @@
   .reveal-visible {
     @apply opacity-100 translate-y-0 translate-x-0;
   }
-  
+
   /* Hero animations */
   .hero-logo-animation {
     animation-name: fadeDownIn;
@@ -109,7 +108,7 @@
     opacity: 0;
     transform: translateY(-80px);
   }
-  
+
   .hero-title-animation {
     animation-name: fadeLeftIn;
     animation-duration: 600ms;
@@ -119,7 +118,7 @@
     opacity: 0;
     transform: translateX(50px);
   }
-  
+
   .hero-slogan-animation {
     animation-name: simpleFadeIn;
     animation-duration: 600ms;
@@ -128,78 +127,101 @@
     animation-delay: 1300ms;
     opacity: 0;
   }
-  
+
+  /* Menu animations */
+  .menu-item-animation {
+    animation-name: simpleFadeIn;
+    animation-duration: 600ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  .menu-divider-animation {
+    animation-name: simpleFadeIn;
+    animation-duration: 400ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
   @keyframes fadeUpIn {
     from {
       opacity: 0;
       transform: translateY(80px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
+
   @keyframes fadeDownIn {
     from {
       opacity: 0;
       transform: translateY(-80px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
+
   @keyframes fadeLeftIn {
     from {
       opacity: 0;
       transform: translateX(50px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
     }
   }
-  
+
   @keyframes simpleFadeIn {
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
   }
-  
+
   /* Menu underline animation */
   @keyframes menuUnderlineExpand {
     from {
       transform: scaleX(0);
     }
+
     to {
       transform: scaleX(1);
     }
   }
-  
+
   .menu-underline-active {
     animation: menuUnderlineExpand 0.4s ease-out forwards;
     transform: scaleX(1) !important;
   }
-  
+
   .menu-underline-hover {
     transform: scaleX(0.5);
   }
-  
+
   /* Hero background animation - just fade */
   @keyframes heroBackgroundFade {
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
   }
-  
+
   .hero-bg-animation {
     animation-name: heroBackgroundFade;
     animation-duration: 600ms;

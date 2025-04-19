@@ -96,9 +96,13 @@ const Header = () => {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className={`px-3 py-2 no-underline cursor-pointer font-medium transition-all duration-200 ease-in-out hover:text-accent relative group ${
+                  className={`menu-item-animation px-3 py-2 no-underline cursor-pointer font-medium transition-all duration-200 ease-in-out hover:text-accent relative group ${
                     activeSection === item.target ? 'text-accent' : 'text-primary'
                   }`}
+                  style={{ 
+                    opacity: 0,
+                    animationDelay: `${1300 + (index * 100)}ms` 
+                  }}
                   activeClass="text-accent"
                   onSetActive={() => setActiveSection(item.target)}
                 >
@@ -110,7 +114,10 @@ const Header = () => {
                   </span>
                 </ScrollLink>
                 {index < arr.length - 1 && (
-                  <div className="h-4 w-px bg-gray-200 mx-1"></div>
+                  <div className="h-4 w-px bg-gray-200 mx-1 menu-divider-animation" style={{ 
+                    opacity: 0,
+                    animationDelay: `${1500 + (index * 100)}ms` 
+                  }}></div>
                 )}
               </React.Fragment>
             ))}

@@ -1,8 +1,8 @@
 import * as React from "react"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import Layout from "../components/Layout"
 import AnimatedBackground from "../components/AnimatedBackground"
-import { Link as ScrollLink, Element } from "react-scroll"
+import { Link as ScrollLink, Element, Events, scrollSpy } from "react-scroll"
 import { COLORS } from "../const/colors"
 
 // Lorem ipsum paragraphs for sections
@@ -13,6 +13,8 @@ const loremIpsum = {
 };
 
 const IndexPage = () => {
+  const heroRef = useRef(null);
+
   // Handle parallax and animation initialization
   useEffect(() => {
     // Make sure the script is loaded
@@ -39,6 +41,22 @@ const IndexPage = () => {
           }
         }, 200);
       });
+
+      // Register react-scroll events to handle active state
+      Events.scrollEvent.register('begin', function() {
+        // Check if user is in hero section and deactivate all menu items
+        const heroElement = document.getElementById('hero');
+        const rect = heroElement?.getBoundingClientRect();
+        if (rect && rect.top >= -100 && rect.bottom >= window.innerHeight / 2) {
+          // We're in hero section, deactivate all menu items
+          document.querySelectorAll('.active-nav-link').forEach(el => {
+            el.classList.remove('active-nav-link');
+          });
+        }
+      });
+
+      // Update scrollSpy
+      scrollSpy.update();
     }
     
     // Add animation trigger with slight delay for Gatsby rendering
@@ -48,7 +66,13 @@ const IndexPage = () => {
       }
     }, 100);
     
-    return () => clearTimeout(animationTimer);
+    return () => {
+      clearTimeout(animationTimer);
+      // Clean up event listeners
+      if (typeof window !== 'undefined') {
+        Events.scrollEvent.remove('begin');
+      }
+    };
   }, []);
   
   return (
@@ -57,6 +81,7 @@ const IndexPage = () => {
       <section 
         id="hero" 
         className="relative h-screen flex items-center overflow-hidden z-10"
+        ref={heroRef}
       >
         {/* Background image with parallax zoom effect */}
         <div 
@@ -75,24 +100,23 @@ const IndexPage = () => {
           <img 
             src="/images/KaizensLogo.svg" 
             alt="Kaizens Logo" 
-            className="hero-logo-animation h-[275px] w-auto mr-[70px]"
+            className="hero-logo-animation h-[300px] w-auto mr-[75px]"
             style={{ opacity: 0, transform: 'translateY(-80px)' }}
           />
           <div>
             <h1
-              className="hero-title-animation text-primary text-[58px] font-bold mb-6 leading-none"
+              className="hero-title-animation text-primary text-[58px] font-bold mb-2 leading-none"
               style={{ opacity: 0, transform: 'translateX(50px)' }}
             >
               Continuous<br />
               <span className="-mt-2 inline-block">Innovation</span>
             </h1>
             <p
-              className="hero-slogan-animation text-primary text-[19px] mb-10 max-w-[600px] font-normal"
+              className="hero-slogan-animation text-primary text-[19px] mb-20 max-w-[600px] font-normal"
               style={{ opacity: 0 }}
             >
               Engineering Crafted with Excellence
             </p>
-            {/* Get Started button removed as per requirement */}
           </div>
         </div>
         <div className="absolute bottom-[30px] left-0 right-0 text-center z-10">
@@ -121,7 +145,7 @@ const IndexPage = () => {
 
       {/* Story Section with Parallax - Dark background with network image */}
       <Element name="history" id="history">
-        <section className="py-24 bg-primary relative overflow-hidden text-white border-b-4 border-accent">
+        <section className="py-24 bg-primary relative overflow-hidden text-white border-t-4 border-b-4 border-accent" style={{ marginTop: '-4px', marginBottom: '-4px' }}>
           {/* Parallax Background */}
           <div 
             className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
@@ -143,19 +167,18 @@ const IndexPage = () => {
             </div>
             
             <div className="flex flex-wrap items-stretch gap-8 pt-8">
-              {/* Content box with image background */}
-              <div className="flex-1 min-w-[300px] max-w-full relative flex overflow-hidden">
-                {/* Content wrapper */}
-                <div className="grid grid-cols-2 gap-[50px] w-full">
-                  {/* Image box */}
-                  <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-white/50">
-                    {/* Background with horizontal parallax */}
+              <div className="flex-1 min-w-[300px] max-w-full relative">
+                {/* Content wrapper with reduced gap */}
+                <div className="grid grid-cols-2 gap-[25px] w-full border border-gray-400/30 rounded-sm">
+                  {/* Image box with overflow hidden to contain parallax */}
+                  <div className="w-full aspect-square relative overflow-hidden">
+                    {/* Background with constrained horizontal parallax */}
                     <div 
-                      className="section-background absolute top-0 left-[-5%] w-[110%] h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
+                      className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
                       style={{
                         backgroundImage: 'url("/images/section-background.png")',
                       }}
-                      data-speed="1.0"
+                      data-speed="0.5"
                       data-direction="left"
                     />
                     {/* Title overlay - centered */}
@@ -166,8 +189,8 @@ const IndexPage = () => {
                     </div>
                   </div>
                   
-                  {/* Text content */}
-                  <div className="py-5 flex flex-col justify-center">
+                  {/* Text content with increased right padding */}
+                  <div className="py-8 pl-12 pr-[calc(3rem+25px)] flex flex-col justify-center">
                     <p className="text-white/90 leading-relaxed text-base mb-5">
                       {loremIpsum.medium}
                     </p>
@@ -184,7 +207,7 @@ const IndexPage = () => {
 
       {/* Vision Section with Parallax - Dark background with network image */}
       <Element name="vision" id="vision">
-        <section className="py-24 bg-white relative overflow-hidden border-b-4 border-primary">
+        <section className="py-24 bg-white relative overflow-hidden border-t-4 border-b-4 border-primary" style={{ marginTop: '-4px', marginBottom: '-4px' }}>
           {/* Parallax Background */}
           <div 
             className="parallax-bg absolute top-0 left-0 right-0 h-full z-[1]"
@@ -209,10 +232,10 @@ const IndexPage = () => {
             </div>
 
             <div className="flex flex-wrap items-stretch gap-8 pt-8">
-              {/* Content wrapper */}
-              <div className="grid grid-cols-2 gap-[50px] w-full">
-                {/* Text content */}
-                <div className="py-5 flex flex-col justify-center">
+              {/* Content wrapper with reduced gap */}
+              <div className="grid grid-cols-2 gap-[25px] w-full border border-gray-400/30 rounded-sm">
+                {/* Text content with increased right padding */}
+                <div className="py-8 pl-12 pr-[calc(3rem+25px)] flex flex-col justify-center">
                   <p className="text-gray-700 leading-relaxed text-base mb-5">
                     {loremIpsum.medium}
                   </p>
@@ -221,15 +244,15 @@ const IndexPage = () => {
                   </p>
                 </div>
                 
-                {/* Image box */}
-                <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-primary/50">
-                  {/* Background with horizontal parallax */}
+                {/* Image box with overflow hidden to contain parallax */}
+                <div className="w-full aspect-square relative overflow-hidden">
+                  {/* Background with constrained horizontal parallax */}
                   <div 
-                    className="section-background absolute top-0 left-[-5%] w-[140%] h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
+                    className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
                     style={{
                       backgroundImage: 'url("/images/section-background-02.png")',
                     }}
-                    data-speed="1.0"
+                    data-speed="0.5"
                     data-direction="right" /* Alternating direction */
                   />
                   {/* Title overlay - centered */}
@@ -247,7 +270,7 @@ const IndexPage = () => {
 
       {/* Developments Section with Parallax - Dark background */}
       <Element name="programs" id="programs">
-        <section className="py-24 bg-[#053A5E] relative overflow-hidden text-white border-b-4 border-accent">
+        <section className="py-24 bg-[#053A5E] relative overflow-hidden text-white border-t-4 border-b-4 border-accent" style={{ marginTop: '-4px', marginBottom: '-4px' }}>
           {/* Parallax Background */}
           <div 
             className="parallax-bg absolute top-0 left-0 right-0 h-full bg-transparent z-[1]"
@@ -269,19 +292,18 @@ const IndexPage = () => {
             </div>
             
             <div className="flex flex-wrap items-stretch gap-8 pt-8">
-              {/* Content box with image background */}
-              <div className="flex-1 min-w-[300px] max-w-full relative flex overflow-hidden">
-                {/* Content wrapper */}
-                <div className="grid grid-cols-2 gap-[50px] w-full">
-                  {/* Image box */}
-                  <div className="w-full aspect-square relative rounded overflow-hidden border-2 border-white/50">
-                    {/* Background with horizontal parallax */}
+              <div className="flex-1 min-w-[300px] max-w-full relative">
+                {/* Content wrapper with reduced gap */}
+                <div className="grid grid-cols-2 gap-[25px] w-full border border-gray-400/30 rounded-sm">
+                  {/* Image box with overflow hidden to contain parallax */}
+                  <div className="w-full aspect-square relative overflow-hidden">
+                    {/* Background with constrained horizontal parallax */}
                     <div 
-                      className="section-background absolute top-0 left-[-5%] w-[110%] h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
+                      className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
                       style={{
                         backgroundImage: 'url("/images/section-background-03.png")',
                       }}
-                      data-speed="1.0"
+                      data-speed="0.5"
                       data-direction="left"
                     />
                     {/* Title overlay - centered */}
@@ -292,8 +314,8 @@ const IndexPage = () => {
                     </div>
                   </div>
                   
-                  {/* Text content */}
-                  <div className="py-5 flex flex-col justify-center">
+                  {/* Text content with increased right padding */}
+                  <div className="py-8 pl-12 pr-[calc(3rem+25px)] flex flex-col justify-center">
                     <p className="text-white/90 leading-relaxed text-base mb-5">
                       {loremIpsum.medium}
                     </p>
@@ -310,7 +332,7 @@ const IndexPage = () => {
 
       {/* Contact Section */}
       <Element name="contact" id="contact">
-        <section className="py-24 px-16 bg-white relative overflow-hidden">
+        <section className="py-24 px-16 bg-white relative overflow-hidden border-t-4 border-primary" style={{ marginTop: '-4px' }}>
           <div className="max-w-7xl mx-auto relative z-10">
             <h2 className="text-4xl text-primary mb-16 text-center font-bold">
               Get In Touch
@@ -324,14 +346,14 @@ const IndexPage = () => {
                 <p className="text-gray-600 leading-relaxed mb-8">
                   {loremIpsum.medium}
                 </p>
-                <div className="p-5 bg-gray-50 rounded-lg">
+                <div className="p-5 bg-gray-50 rounded-sm border border-gray-300/50">
                   <p className="mb-2.5"><strong>Email:</strong> info@kaizens.com</p>
                   <p className="mb-2.5"><strong>Phone:</strong> +1 (555) 123-4567</p>
                   <p><strong>Address:</strong> 123 Innovation St, Tech City, TC 12345</p>
                 </div>
               </div>
               
-              <div className="flex-1 min-w-[300px] max-w-[500px] bg-white rounded-lg p-8 shadow-lg">
+              <div className="flex-1 min-w-[300px] max-w-[500px] bg-white rounded-sm p-8 border border-gray-300/50">
                 <form className="flex flex-col gap-4">
                   <input 
                     type="text" 

@@ -64,3 +64,50 @@
     @apply max-w-xl mx-auto mt-16 flex flex-col gap-4;
   }
 }
+
+/* CSS fix for border gaps between sections */
+
+/* Set position for all sections */
+section {
+  position: relative;
+}
+
+/* Apply z-index and negative margins for proper section connections */
+#history {
+  position: relative;
+  z-index: 30; /* Higher z-index to stack properly */
+  margin-bottom: -4px; /* Negative margin equal to border width */
+}
+
+#vision {
+  position: relative;
+  z-index: 20;
+  margin-top: 0; /* Reset top margin */
+  margin-bottom: -4px; /* Negative margin equal to border width */
+}
+
+#programs {
+  position: relative;
+  z-index: 10;
+  margin-top: 0; /* Reset top margin */
+  margin-bottom: -4px; /* Negative margin equal to border width */
+}
+
+#contact {
+  position: relative;
+  z-index: 0;
+  margin-top: 0; /* Reset top margin */
+}
+
+/* Ensure navigation menu links don't show active state in hero section */
+.nav-link.active {
+  /* Save existing active styles here */
+}
+
+/* Override for when in hero section - controlled by JavaScript */
+body.in-hero-section .nav-link.active {
+  /* Remove active styling for menu items when in hero section */
+  /* For example: */
+  color: inherit !important;
+  border-bottom-color: transparent !important;
+}
