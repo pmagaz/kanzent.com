@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useState, useEffect, useCallback } from "react"
 import { Element } from "react-scroll"
+import { Link } from "gatsby"
 import { COLORS } from "../../const/colors"
 
 const CaseStudies = ({
@@ -165,13 +166,13 @@ const CaseStudies = ({
                         {/* text */}
                         <p className="text-white text-lg font-bold mb-6">{study.text}</p>
                         
-                        {/* CTA button - using blue button from screenshot */}
-                        <a 
-                          href={study.link || "#"} 
+                        {/* CTA button */}
+                        <Link 
+                          to={`/case-studies/${study.id}`}
                           className="bg-secondary hover:bg-accent text-white border-none py-3 px-4 rounded text-base font-medium cursor-pointer transition-colors duration-200 ease-in-out text-center mt-auto"
                         >
                           View Details
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

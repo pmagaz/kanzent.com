@@ -1,11 +1,12 @@
 import * as React from "react"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
 import SectionNumbers from "../components/SectionNumbers"
 import CaseStudies from "../components/CaseStudies"
 import { Link as ScrollLink, Element, Events, scrollSpy } from "react-scroll"
 import { COLORS } from "../const/colors"
+import { isMobile } from "../utils/device"
 
 // Lorem ipsum paragraphs for sections
 const loremIpsum = {
@@ -16,6 +17,24 @@ const loremIpsum = {
 
 const IndexPage = () => {
   const heroRef = useRef(null);
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
+
+  // Set up mobile detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileDevice(isMobile());
+    };
+    
+    // Set initial value
+    handleResize();
+    
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Handle parallax and animation initialization
   useEffect(() => {
@@ -90,7 +109,8 @@ const IndexPage = () => {
           className="parallax-zoom-bg absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover z-[1] origin-center backface-hidden"
           style={{
             backgroundImage: 'url("/images/hero-background.png")',
-            backgroundPosition: 'center 75px' /* Offset by 75px from the top */
+            backgroundPosition: 'center center',
+            top: '20%'  
           }}
           data-zoom="1.5"
           id="hero-bg"
@@ -98,37 +118,70 @@ const IndexPage = () => {
         
         {/* No dark overlay as per requirement */}
         
-        <div className="relative z-10 max-w-7xl mx-auto px-10 flex items-center w-full -mt-[200px]">
-          <div className="flex flex-col items-center mr-[75px]">
-            <img 
-              src="/images/KaizensLogo.svg" 
-              alt="Kaizens Logo Icon" 
-              className="hero-logo-animation w-[200px] h-auto mb-3"
-              style={{ opacity: 0, transform: 'translateY(-80px)' }}
-            />
-            <img 
-              src="/images/KaizensName.svg"
-              alt="Kaizens Company Name" 
-              className="hero-name-animation w-[200px] h-auto"
-              style={{ opacity: 0, transform: 'translateY(80px)' }}
-            />
-          </div>
-         
-          <div>
-            <h1
-              className="hero-title-animation text-primary text-[50px] font-bold mb-2 leading-none"
-              style={{ opacity: 0, transform: 'translateX(50px)' }}
-            >
-              Continuous<br />
-              <span className="-mt-2 inline-block">Innovation</span>
-            </h1>
-            <p
-              className="hero-slogan-animation text-primary text-[19px] mb-20 max-w-[600px] font-normal"
-              style={{ opacity: 0 }}
-            >
-              Engineering Crafted with Excellence
-            </p>
-          </div>
+        <div className={`relative z-10 max-w-7xl mx-auto px-10 ${isMobileDevice ? 'flex flex-col items-center justify-center w-full' : 'flex items-center w-full -mt-[200px]'}`}>
+          {isMobileDevice ? (
+            /* Mobile Layout */
+            <div className="flex flex-col items-center text-center" style={{ marginTop: "-90px" }}>
+              <img 
+                src="/images/KaizensLogo.svg" 
+                alt="Kaizens Logo Icon" 
+                className="hero-logo-animation w-[180px] h-auto mb-5"
+                style={{ opacity: 0, transform: 'translateY(-80px)' }}
+              />
+              <img 
+                src="/images/KaizentName.svg"
+                alt="Kaizens Company Name" 
+                className="hero-name-animation w-[200px] h-auto mb-16"
+                style={{ opacity: 0, transform: 'translateY(80px)' }}
+              />
+              <h1
+                className="hero-title-animation text-tertiary text-[40px] font-bold mb-2 leading-none text-center"
+                style={{ opacity: 0, transform: 'translateX(50px)' }}
+              >
+                Continuous<br />
+                <span className="-mt-2 inline-block">Innovation</span>
+              </h1>
+              <p
+                className="hero-slogan-animation text-quaternary text-[16px] mb-10 max-w-[90%] font-normal text-center"
+                style={{ opacity: 0 }}
+              >
+                Engineering Crafted with Excellence
+              </p>
+            </div>
+          ) : (
+            /* Desktop Layout */
+            <>
+              <div className="flex flex-col items-center mr-[75px]">
+                <img 
+                  src="/images/KaizensLogo.svg" 
+                  alt="Kaizens Logo Icon" 
+                  className="hero-logo-animation w-[200px] h-auto mb-3"
+                  style={{ opacity: 0, transform: 'translateY(-80px)' }}
+                />
+                <img 
+                  src="/images/KaizentName.svg"
+                  alt="Kaizens Company Name" 
+                  className="hero-name-animation w-[200px] h-auto"
+                  style={{ opacity: 0, transform: 'translateY(80px)' }}
+                />
+              </div>
+              <div>
+                <h1
+                  className="hero-title-animation text-tertiary text-[48px] font-bold mb-2 leading-none"
+                  style={{ opacity: 0, transform: 'translateX(50px)' }}
+                >
+                  Continuous<br />
+                  <span className="-mt-2 inline-block">Innovation</span>
+                </h1>
+                <p
+                  className="hero-slogan-animation text-quaternary text-[19px] mb-20 max-w-[600px] font-normal"
+                  style={{ opacity: 0 }}
+                >
+                  Engineering Crafted with Excellence
+                </p>
+              </div>
+            </>
+          )}
         </div>
         <div className="absolute bottom-[30px] left-0 right-0 text-center z-10">
           <ScrollLink 
@@ -203,24 +256,25 @@ const IndexPage = () => {
       />
 
 
-{/* Case Studies Section */}
-<CaseStudies 
-  id="case-studies"
-  name="case-studies"
-  title="Case Studies"
-  backgroundColor="white"
-  textColor="text-primary"
-  caseStudies={[
-    {
-      title: "OnePortfolio",
-      url: "https://oneportfolio.io",
-      text: "Portfolio Management solution",
-      icon: "/images/oneportfolio.png",
-      link: "/case-studies/oneportfolio.io"
-    },
-   
-  ]}
-/>
+    {/* Case Studies Section */}
+    <CaseStudies 
+      id="case-studies"
+      name="case-studies"
+      title="Case Studies"
+      backgroundColor="white"
+      textColor="text-primary"
+      caseStudies={[
+        {
+          id: "oneportfolio",
+          title: "OnePortfolio",
+          url: "https://oneportfolio.io",
+          text: "Portfolio Management solution",
+          icon: "/images/case-studies/oneportfolio.png"
+          // Remove the link property as we're now generating it based on id in the component
+        },
+      
+      ]}
+    />
       
       {/* Stats Section */}
 <SectionNumbers 
