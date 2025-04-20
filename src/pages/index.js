@@ -159,7 +159,7 @@ const IndexPage = () => {
                   style={{ opacity: 0, transform: 'translateY(-80px)' }}
                 />
                 <img 
-                  src="/images/KaizentName.svg"
+                  src="/images/KaizensName.svg"
                   alt="Kaizens Company Name" 
                   className="hero-name-animation w-[200px] h-auto"
                   style={{ opacity: 0, transform: 'translateY(80px)' }}
@@ -214,10 +214,12 @@ const IndexPage = () => {
         title="Our Story"
         backgroundColor="primary"
         textColor="text-white"
-        paragraphs={[loremIpsum.medium, loremIpsum.short]}
+        paragraphs={[
+          "Kaizent was born in Zurich, Switzerland in 2025, though its story begins in Madrid, Spain, years before. Founded by Spanish entrepreneur living in Zurich with a vision to transform digital experiences, the company combines Swiss precision with Spanish passion and innovation.",
+        ]}
         boxTitle="Story"
         boxImage="/images/section-background.png"
-        boxParagraphs={[loremIpsum.medium, loremIpsum.short]}
+        boxParagraphs={["The founder's team journey through Europe's diverse business landscapes shaped Kaizent's unique character. Years immersed in the fast-paced SaaS world taught agility and scalable thinking, while time in prestigious consultancies developed strategic depth and client understanding."]}
         imageDirection="left"
         parallaxSpeed="0.15"
       />
