@@ -71,13 +71,13 @@ const Section = ({
           </div>
           
           {!hideGrid && (
-            <div className="flex flex-wrap items-stretch gap-8 pt-3 md:pt-6">
+            <div className="flex flex-wrap items-stretch gap-8 pt-3 md:pt-6 pb-4 md:pb-6">
               <div className="flex-1 min-w-[300px] max-w-full relative">
                 {/* Content wrapper with responsive layout */}
                 <div className={`${isMobileDevice ? 'flex flex-col' : 'grid grid-cols-2'} gap-[25px] w-full border border-gray-400/30 rounded-sm`}>
                   {/* Image box with overflow hidden to contain parallax */}
                   {(imageFirst || isMobileDevice) && (
-                    <div className="w-full aspect-[4/3] md:aspect-[4/3] relative overflow-hidden">
+                    <div className="w-full aspect-[4/3] md:aspect-[4/2.625] relative overflow-hidden">
                       {/* Background with constrained horizontal parallax */}
                       <div 
                         className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"
@@ -109,7 +109,7 @@ const Section = ({
                   
                   {/* Image box with overflow hidden to contain parallax - shown if direction is right and not mobile */}
                   {!imageFirst && !isMobileDevice && (
-                    <div className="w-full aspect-[4/3] relative overflow-hidden">
+                    <div className="w-full aspect-[4/3] md:aspect-[4/2.625] relative overflow-hidden">
                       {/* Background with constrained horizontal parallax */}
                       <div 
                         className="section-background absolute top-0 left-0 w-full h-full bg-no-repeat bg-center bg-cover origin-center will-change-transform"

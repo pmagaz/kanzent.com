@@ -159,7 +159,7 @@ const IndexPage = () => {
                   style={{ opacity: 0, transform: 'translateY(-80px)' }}
                 />
                 <img 
-                  src="/images/KaizensName.svg"
+                  src="/images/KaizentName.svg"
                   alt="Kaizens Company Name" 
                   className="hero-name-animation w-[200px] h-auto"
                   style={{ opacity: 0, transform: 'translateY(80px)' }}
@@ -215,11 +215,11 @@ const IndexPage = () => {
         backgroundColor="primary"
         textColor="text-white"
         paragraphs={[
-          "Kaizent was born in Zurich, Switzerland in 2025, though its story begins in Madrid, Spain, years before. Founded by Spanish entrepreneur living in Zurich with a vision to transform digital experiences, the company combines Swiss precision with Spanish passion and innovation.",
+          "Kaizent was established in Zurich, Switzerland in 2025, with origins tracing back to Madrid, Spain. Founded by Spanish entrepreneurs with extensive experience in software development across SaaS companies and international enterprise consultancy services in E-commerce, Financial Services, Media, and Healthcare across many countries."
         ]}
+        boxParagraphs={["Leveraging global industry expertise to deliver enterprise-grade digital solutions. Our extensive background in the fast-paced SaaS ecosystem has cultivated a culture of agility and scalable thinking, while our consultancy heritage has established strategic depth and comprehensive market understanding."]}
         boxTitle="Story"
         boxImage="/images/section-background.png"
-        boxParagraphs={["The founder's team journey through Europe's diverse business landscapes shaped Kaizent's unique character. Years immersed in the fast-paced SaaS world taught agility and scalable thinking, while time in prestigious consultancies developed strategic depth and client understanding."]}
         imageDirection="left"
         parallaxSpeed="0.15"
       />
@@ -231,10 +231,14 @@ const IndexPage = () => {
         title="Our Vision"
         backgroundColor="white"
         textColor=""
-        paragraphs={[loremIpsum.medium, loremIpsum.short]}
+        paragraphs={[
+          "At Kaizent, we have internalized the fundamental value of excellence in software engineering. We operate with a rigorous quality approach that combines exceptional talent with processes created in the AI era, free from the constraints of outdated methodologies or organizational structures. This commitment to modern engineering precision enables us to deliver solutions that consistently exceed industry standards."
+        ]}
+        boxParagraphs={[
+          "Our mission is to deliver to our clients the same level of passion, innovation, and engineering precision that we apply to our products. We believe in building lasting partnerships, not just delivering solutions and moving on. This consistent standard of excellence ensures that our clients receive solutions that drive tangible business outcomes.",
+        ]}
         boxTitle="Vision"
         boxImage="/images/section-background-02.png"
-        boxParagraphs={[loremIpsum.medium, loremIpsum.short]}
         imageDirection="right"
         parallaxSpeed="0.2"
         gradientBackground={{
@@ -243,20 +247,26 @@ const IndexPage = () => {
       />
       
       {/* Technology Section with Parallax */}
-      <Section 
-        id="technology"
-        name="technology"
-        title="Technology"
-        backgroundColor="primary"
-        textColor="text-white"
-        paragraphs={[loremIpsum.medium, loremIpsum.short]}
-        boxTitle="Technology"
-        boxImage="/images/section-background-03.png"
-        boxParagraphs={[loremIpsum.medium, loremIpsum.short]}
-        imageDirection="left"
-        parallaxSpeed="0.12"
-      />
-
+    <Section 
+      id="technology"
+      name="technology"
+      title="Technology"
+      backgroundColor="primary"
+      textColor="text-white"
+      paragraphs={[
+        "Kaizent stands as one of the first completely AI-assisted software development companies in the industry. We strategically integrate artificial intelligence throughout our development lifecycle. This AI-augmented methodology enables unprecedented levels of productivity, consistency, and innovation while maintaining the human expertise.",
+      ]}
+      boxParagraphs={[
+        "At Kaizent, we harness the most advanced technologies available to deliver optimal solutions. Our technology stack is continuously evaluated and refined to incorporate emerging tools and frameworks that enhance development efficiency and product performance."
+      ]}
+      boxTitle="Technology"
+      boxImage="/images/section-background-03.png"
+      imageDirection="left"
+      parallaxSpeed="0.2"
+      gradientBackground={{
+        background: `linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(${parseInt(COLORS.primary.substring(1, 3), 16)}, ${parseInt(COLORS.primary.substring(3, 5), 16)}, ${parseInt(COLORS.primary.substring(5, 7), 16)}, 0.95))`,
+      }}
+    />
 
     {/* Case Studies Section */}
     <CaseStudies 
