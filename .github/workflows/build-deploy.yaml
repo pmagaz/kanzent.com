@@ -28,14 +28,10 @@ jobs:
       - name: Install Project Dependencies
         run: |
           npm install
-          pwd
-          ls -la
 
       - name: Build
         run: |
           npm run build
-          pwd
-          ls -la
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
