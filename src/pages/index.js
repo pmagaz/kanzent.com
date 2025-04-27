@@ -123,14 +123,14 @@ const IndexPage = () => {
             /* Mobile Layout */
             <div className="flex flex-col items-center text-center" style={{ marginTop: "-90px" }}>
               <img 
-                src="/images/KaizensLogo.svg" 
-                alt="Kaizens Logo Icon" 
+                src="/images/KaizentLogo.svg" 
+                alt="Kaizent Logo Icon" 
                 className="hero-logo-animation w-[180px] h-auto mb-5"
                 style={{ opacity: 0, transform: 'translateY(-80px)' }}
               />
               <img 
                 src="/images/KaizentName.svg"
-                alt="Kaizens Company Name" 
+                alt="Kaizent Company Name" 
                 className="hero-name-animation w-[200px] h-auto mb-16"
                 style={{ opacity: 0, transform: 'translateY(80px)' }}
               />
@@ -153,14 +153,14 @@ const IndexPage = () => {
             <>
               <div className="flex flex-col items-center mr-[75px]">
                 <img 
-                  src="/images/KaizensLogo.svg" 
-                  alt="Kaizens Logo Icon" 
+                  src="/images/KaizentLogo.svg" 
+                  alt="Kaizent Logo Icon" 
                   className="hero-logo-animation w-[200px] h-auto mb-3"
                   style={{ opacity: 0, transform: 'translateY(-80px)' }}
                 />
                 <img 
                   src="/images/KaizentName.svg"
-                  alt="Kaizens Company Name" 
+                  alt="Kaizent Company Name" 
                   className="hero-name-animation w-[200px] h-auto"
                   style={{ opacity: 0, transform: 'translateY(80px)' }}
                 />
@@ -217,7 +217,7 @@ const IndexPage = () => {
         paragraphs={[
           "Kaizent was established in Zurich, Switzerland in 2025, with origins tracing back to Madrid, Spain. Founded by Spanish entrepreneurs with extensive experience in software development across SaaS companies and international enterprise consultancy services in E-commerce, Financial Services, Media, and Healthcare across many countries."
         ]}
-        boxParagraphs={["Leveraging global industry expertise to deliver enterprise-grade digital solutions. Our extensive background in the fast-paced SaaS ecosystem has cultivated a culture of agility and scalable thinking, while our consultancy heritage has established strategic depth and comprehensive market understanding."]}
+        boxParagraphs={["Our extensive background in the fast-paced SaaS ecosystem has cultivated a culture of product design, agility and scalable thinking, that product development requires. Furthermore, our consulting prowess has enabled us to develop nuanced client awareness, effective project orchestration, and fulfillment of business imperatives through tailored implementations."]} 
         boxTitle="Story"
         boxImage="/images/section-background.png"
         imageDirection="left"
@@ -235,7 +235,7 @@ const IndexPage = () => {
           "At Kaizent, we have internalized the fundamental value of excellence in software engineering. We operate with a rigorous quality approach that combines exceptional talent with processes created in the AI era, free from the constraints of outdated methodologies or organizational structures. This commitment to modern engineering precision enables us to deliver solutions that consistently exceed industry standards."
         ]}
         boxParagraphs={[
-          "Our mission is to deliver to our clients the same level of passion, innovation, and engineering precision that we apply to our products. We believe in building lasting partnerships, not just delivering solutions and moving on. This consistent standard of excellence ensures that our clients receive solutions that drive tangible business outcomes.",
+          "Our mission is to deliver to our clients the same level of passion, innovation, and engineering precision that we apply to our products. We believe in building lasting partnerships, not just delivering solutions and moving on. Our relentless pursuit of excellence results in delivering clients enduring solutions engineered to last, providing continuous value rather than solutions that gradually reveal their limitations" 
         ]}
         boxTitle="Vision"
         boxImage="/images/section-background-02.png"
@@ -254,10 +254,10 @@ const IndexPage = () => {
       backgroundColor="primary"
       textColor="text-white"
       paragraphs={[
-        "Kaizent stands as one of the first completely AI-assisted software development companies in the industry. We strategically integrate artificial intelligence throughout our development lifecycle. This AI-augmented methodology enables unprecedented levels of productivity, consistency, and innovation while maintaining the human expertise.",
+        "Kaizent stands as one of the first completely AI-assisted software development companies in the industry. Our development lifecycle itself was architected with AI technologies from the ground up. This thoughtfully augmented methodology enables unprecedented levels of productivity and quality while maintaining the human expertise."
       ]}
       boxParagraphs={[
-        "At Kaizent, we harness the most advanced technologies available to deliver optimal solutions. Our technology stack is continuously evaluated and refined to incorporate emerging tools and frameworks that enhance development efficiency and product performance."
+        "At Kaizent, we harness the most advanced technologies available to deliver optimal solutions. Our expertise spans Cloud Native Developments, robust Backend systems built on high-performance server technologies, modern Frontend applications leveraging responsive design principles, and intuitive Mobile solutions for cross-platform deployment."
       ]}
       boxTitle="Technology"
       boxImage="/images/section-background-03.png"
@@ -289,18 +289,17 @@ const IndexPage = () => {
     />
       
       {/* Stats Section */}
-<SectionNumbers 
-  id="stats"
-  name="stats"
-  backgroundImage="/images/section-background-04.png"
-  stats={[
-    { value: "15", label: "Years of Experience" },
-    { value: "10K", label: "Business Partners" },
-    { value: "25M", label: "Products Installed" },
-    { value: "22", label: "Countries World Wide" },
-    { value: "5", label: "Industry Awards" }
-  ]}
-/>
+      <SectionNumbers 
+        id="stats"
+        name="stats"
+        backgroundImage="/images/section-background-04.png"
+        stats={[
+          { value: "20", label: "Years of Experience" },
+          { value: "8", label: "Countries World Wide" },
+          { value: "15", label: "Sectors World Wide" },
+          { value: "25M", label: "Lines of Code" },
+        ]}
+      />
 
       {/* Contact Section */}
       <Element name="contact" id="contact">
@@ -316,10 +315,10 @@ const IndexPage = () => {
                   Contact Us
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-8">
-                  {loremIpsum.medium}
+                  Ready to transform your business through innovative technology solutions? We're here to answer your questions and discuss how our expertise can help you achieve your goals. Fill out the form, and our team will get back to you promptly
                 </p>
                 <div className="p-5 bg-gray-50 rounded-sm border border-gray-300/50">
-                  <p className="mb-2.5"><strong>Email:</strong> info@kaizens.com</p>
+                  <p className="mb-2.5"><strong>Email:</strong> info@kaizent.com</p>
                   <p className="mb-2.5"><strong>Phone:</strong> +1 (555) 123-4567</p>
                   <p><strong>Address:</strong> 123 Innovation St, Tech City, TC 12345</p>
                 </div>
@@ -360,4 +359,4 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => <title>Kaizens - Continuous Improvement</title>
+export const Head = () => <title>Kaizent - Continuous Improvement</title>

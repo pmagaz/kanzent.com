@@ -105,11 +105,11 @@ const CaseStudyPage = ({ pageContext }) => {
                 </button>
               </div>
               
-              <img 
+              {/* <img 
                 src={caseStudy.logo} 
                 alt={`${caseStudy.title} logo`}
                 className="mb-6 max-h-16" 
-              />
+              /> */}
               
               <h1 className="text-[40px] md:text-[50px] text-white font-bold mb-4">
                 {caseStudy.title}
@@ -280,5 +280,5 @@ export default CaseStudyPage
 
 export const Head = ({ pageContext }) => {
   const { caseStudy = { title: "Case Study" } } = pageContext;
-  return <title>Kaizens - {caseStudy.title} Case Study</title>
+  return <title>Kaizent - {caseStudy.title} Case Study</title>
 }

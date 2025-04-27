@@ -186,7 +186,7 @@ const Header = () => {
           }`}>
             <img 
               src="/images/KaizentLogoHeader.svg" 
-              alt="Kaizens Logo" 
+              alt="Kaizent Logo" 
               className="h-10 w-auto mr-2.5"
             />
           </Link>

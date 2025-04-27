@@ -1,2 +1,2 @@
-# kaizens
-Kaizens landing page
+# kaizent
+Kaizent landing page

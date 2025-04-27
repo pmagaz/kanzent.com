@@ -17,12 +17,12 @@
   }
 
   .hero-subtitle {
-    @apply text-xl md:text-2xl font-normal mb-8 text-kaizens-text-secondary;
+    @apply text-xl md:text-2xl font-normal mb-8 text-kaizent-text-secondary;
   }
 
   /* Story section */
   .history-section {
-    @apply min-h-screen flex flex-col justify-center py-16 bg-kaizens-bg-light;
+    @apply min-h-screen flex flex-col justify-center py-16 bg-kaizent-bg-light;
   }
 
   .history-grid {
@@ -31,7 +31,7 @@
 
   /* Vision section */
   .vision-section {
-    @apply min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-kaizens-bg-dark to-kaizens-bg-darker;
+    @apply min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-kaizent-bg-dark to-kaizent-bg-darker;
   }
 
   .vision-content {
@@ -40,7 +40,7 @@
 
   /* Technology section */
   .technology-section {
-    @apply min-h-screen flex flex-col justify-center py-16 bg-kaizens-bg-light;
+    @apply min-h-screen flex flex-col justify-center py-16 bg-kaizent-bg-light;
   }
 
   .technology-list {
@@ -52,12 +52,12 @@
   }
 
   .program-title {
-    @apply text-2xl font-semibold mb-2 text-kaizens-light-blue;
+    @apply text-2xl font-semibold mb-2 text-kaizent-light-blue;
   }
 
   /* Contact section */
   .contact-section {
-    @apply min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-kaizens-bg-dark to-kaizens-bg-darker;
+    @apply min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-kaizent-bg-dark to-kaizent-bg-darker;
   }
 
   .contact-form {

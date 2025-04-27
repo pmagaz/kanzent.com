@@ -9,20 +9,20 @@ exports.createPages = async ({ actions }) => {
       title: "OnePortfolio",
       subtitle: "Portfolio Management Solution",
       description: [
-        "OnePortfolio is a comprehensive portfolio management solution that helps investors track and optimize their investments across multiple asset classes.",
-        "The platform integrates with various financial institutions to provide real-time data and insights, allowing users to make informed decisions about their investments."
+        "OnePortfolio is a portfolio platform solution that helps investors track and optimize their investments across multiple brokers, currencies and asset classes in a simplified view. It eliminates the complexity of monitoring multiple portfolios across different brokers, keeping all your investments in one place.",
+        "Many of our team members are active investors themselves, and we developed this product after experiencing frustration with existing portfolio trackers that were either too basic or had prohibitive price points for the average retail investor."
       ],
       logo: "/images/case-studies/oneportfolio.png",
       screenshot: "/images/case-studies/oneportfolio-screenshoot.webp",
       backgroundImage: "/images/case-studies/case-study-bg.png",
-      technologies: ["React", "Node.js", "MongoDB"],
-      challenge: "The client needed a solution that could aggregate financial data from multiple sources while providing a user-friendly interface for investors to track and manage their portfolios. Security, scalability, and real-time updates were critical requirements.",
-      solution: "We developed a secure, cloud-based platform with real-time data integration capabilities. The solution includes customizable dashboards, automated reporting features, and advanced analytics tools to help users optimize their investment strategies.",
-      results: "Since launch, OnePortfolio has attracted over 10,000 users and manages more than $500 million in assets. Users report saving an average of 5 hours per week on portfolio management tasks, and the platform has received recognition for its intuitive design and comprehensive feature set.",
+      technologies: ["Rust", "React"],
+      challenge: "Financial platforms of this nature must process data from multiple sources and perform complex computational tasks to calculate the metrics and KPIs investors need. Scalability and Timely data updates present significant obstacles. Perhaps the most demanding challenge is achieving optimal performance when handling the enormous volumes of financial data that must be processed while maintaining a seamless user experience.",
+      solution: "If performance really matters, you have to carefully select the stack. A wrong selection may impact the experience of your users or have costly consequences: Nothing is free in the Cloud. For this reason, we selected Rust as our core language and implemented a complete asynchronous architecture. This approach allowed us to process massive datasets with exceptional efficiency and minimal memory usage, helping us to reduce infrastructure costs.",
+      results: "Since launch, OnePortfolio has attracted thousands of users in a record time across both Web and Mobile channels. User reviews are quite positive and report saving an average of 3 hours per week on portfolio management tasks, and the platform has received recognition for its intuitive design and comprehensive feature set.",
       testimonial: {
-        quote: "Working with Kaizens transformed our vision into reality. The OnePortfolio platform exceeded our expectations in terms of functionality, user experience, and performance.",
-        author: "Jane Smith",
-        position: "CEO, OnePortfolio Inc."
+        quote: "Keeping track of my international investments across different brokers was a mess. The dashboard organizes everything so clearly, I can finally see my entire financial picture at a glance.",
+        author: "Peter Klein",
+        position: ""
       },
       ctaLink: "https://oneportfolio.io",
       ctaText: "Visit Website",

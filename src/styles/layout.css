@@ -27,11 +27,11 @@
 
   /* Section heading styles */
   .section h2 {
-    @apply text-4xl font-bold mb-8 text-kaizens-light-blue relative;
+    @apply text-4xl font-bold mb-8 text-kaizent-light-blue relative;
   }
 
   .section h2::after {
-    @apply content-[''] absolute bottom-[-10px] left-0 w-16 h-[3px] bg-kaizens-medium-blue rounded-full;
+    @apply content-[''] absolute bottom-[-10px] left-0 w-16 h-[3px] bg-kaizent-medium-blue rounded-full;
   }
 
   /* Hero section styles */
@@ -49,7 +49,7 @@
   }
 
   .feature-card {
-    @apply bg-kaizens-medium-blue/5 border border-kaizens-medium-blue/10 rounded-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-kaizens-dark-blue/10 hover:border-kaizens-medium-blue/20;
+    @apply bg-kaizent-medium-blue/5 border border-kaizent-medium-blue/10 rounded-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-kaizent-dark-blue/10 hover:border-kaizent-medium-blue/20;
   }
 
   /* Vision content styles */
@@ -76,7 +76,7 @@
   }
 
   .contact-form input {
-    @apply px-4 py-4 rounded-lg border border-kaizens-medium-blue/20 bg-kaizens-medium-blue/5 text-white focus:outline-none focus:border-kaizens-medium-blue focus:ring focus:ring-kaizens-medium-blue/10;
+    @apply px-4 py-4 rounded-lg border border-kaizent-medium-blue/20 bg-kaizent-medium-blue/5 text-white focus:outline-none focus:border-kaizent-medium-blue focus:ring focus:ring-kaizent-medium-blue/10;
   }
 
   .cta-button {

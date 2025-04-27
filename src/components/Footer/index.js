@@ -11,23 +11,23 @@ const Footer = () => {
           <div className="flex-1 min-w-[250px] max-w-[400px]">
             <Link to="/" className="inline-block mb-5">
               <img 
-                src="/images/KaizensLogoHeader.svg" 
-                alt="Kaizens Logo" 
+                src="/images/KaizentLogoHeader.svg" 
+                alt="Kaizent Logo" 
                 className="h-10 w-auto" 
               />
             </Link>
             <p className="text-gray-600 leading-relaxed mb-5">
-              Kaizens is dedicated to helping organizations achieve continuous improvement 
-              through small, incremental changes that lead to significant long-term results.
+              Engineering Crafted with Excellence<br/>
+              Where Quality Meets Possibility
             </p>
             <div className="flex gap-4">
-              {['twitter', 'facebook', 'linkedin', 'instagram'].map(platform => (
+              {['linkedin', 'instagram'].map(platform => (
                 <a 
                   key={platform} 
                   href={`https://${platform}.com`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white transition-colors duration-200 hover:bg-secondary"
+                  className="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-white transition-colors duration-200 hover:bg-accent"
                 >
                   <span className="text-sm">{platform.charAt(0).toUpperCase()}</span>
                 </a>
@@ -37,13 +37,13 @@ const Footer = () => {
           
           <div className="flex-1 min-w-[200px] max-w-[250px]">
             <h3 className="text-primary text-xl font-bold mb-5">
-              Quick Links
+              Resources
             </h3>
             <ul className="list-none p-0 m-0">
               {[
-                { name: 'Story', target: 'history' },
-                { name: 'Vision', target: 'vision' },
+                { name: 'Blog', target: 'blog' },
                 { name: 'Technology', target: 'technology' },
+                { name: 'Case Studies', target: 'case-studies' },
                 { name: 'Contact Us', target: 'contact' }
               ].map(item => (
                 <li key={item.name} className="mb-3">
@@ -62,7 +62,7 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div className="flex-1 min-w-[200px] max-w-[250px]">
+          {/* <div className="flex-1 min-w-[200px] max-w-[250px]">
             <h3 className="text-primary text-xl font-bold mb-5">
               Resources
             </h3>
@@ -83,7 +83,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
           
           <div className="flex-1 min-w-[200px] max-w-[250px]">
             <h3 className="text-primary text-xl font-bold mb-5">
@@ -110,7 +110,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 pt-5 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Kaizens. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Kaizent. All rights reserved.</p>
         </div>
       </div>
     </footer>
