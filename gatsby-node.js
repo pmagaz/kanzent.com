@@ -47,4 +47,11 @@ exports.createPages = async ({ actions }) => {
       },
     });
   });
+
+  // Create success page for contact form
+  createPage({
+    path: '/success',
+    component: require.resolve('./src/pages/success.js'),
+    context: {}
+  });
 };
