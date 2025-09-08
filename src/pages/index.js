@@ -306,16 +306,17 @@ const IndexPage = () => {
                   Ready to transform your business through innovative technology solutions? We're here to answer your questions and discuss how our expertise can help you achieve your goals. Fill out the form, and our team will get back to you promptly
                 </p>
                 <div className="p-5 bg-gray-50 rounded-sm border border-gray-300/50">
-                  <p className="mb-2.5"><strong>Email:</strong> info@kanzent.com</p>
-                  <p className="mb-2.5"><strong>Phone:</strong> +41 123-4567-91011</p>
                   {
+                  //<p className="mb-2.5"><strong>Email:</strong> info@kanzent.com</p>
+                  //<p className="mb-2.5"><strong>Phone:</strong> +41 123-4567-91011</p>
                   //<p><strong>Address:</strong> 123 Innovation St, Tech City, TC 12345</p>
 }
                 </div>
               </div>
               
               <div className="flex-1 min-w-[300px] max-w-[500px] bg-white rounded-sm p-8 border border-gray-300/50">
-                <form name="contact" netlify action="/success" className="flex flex-col gap-4">
+                <form name="contact" action="/success" method="POST" data-netlify="true" className="flex flex-col gap-4">
+                  <input type="hidden" name="form-name" value="contact" />
                   <input 
                     type="text" 
                     name="name"

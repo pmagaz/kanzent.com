@@ -104,11 +104,8 @@ const SuccessPage = () => {
                   transition: 'all 0.6s ease-in-out 0.3s'
                 }}
               >
-                <p className="text-xl md:text-2xl text-quaternary font-normal">
+                <p className="text-xl md:text-2xl text-white font-normal">
                   Thank you for reaching out. We'll get back to you soon.
-                </p>
-                <p className="text-lg md:text-xl text-gray-600">
-                  Our team will respond within 24 hours.
                 </p>
               </div>
             </div>
