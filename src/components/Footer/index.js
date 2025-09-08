@@ -11,8 +11,8 @@ const Footer = () => {
           <div className="flex-1 min-w-[250px] max-w-[400px]">
             <Link to="/" className="inline-block mb-5">
               <img 
-                src="/images/KaizentLogoHeader.svg" 
-                alt="Kaizent Logo" 
+                src="/images/KanzentHorizontal.svg" 
+                alt="Kanzent Logo" 
                 className="h-10 w-auto" 
               />
             </Link>
@@ -110,7 +110,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 pt-5 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Kaizent. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Kanzent. All rights reserved.</p>
         </div>
       </div>
     </footer>

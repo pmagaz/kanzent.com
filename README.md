@@ -1,2 +1,2 @@
-# kaizent
-Kaizent landing page
+# kanzent
+Kanzent landing page

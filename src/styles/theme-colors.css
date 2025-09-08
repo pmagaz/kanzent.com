@@ -5,29 +5,29 @@
 
 :root {
   /* Primary brand colors */
-  --color-kaizent-light-blue: #70b6f3;
-  --color-kaizent-medium-blue: #3480e3;
-  --color-kaizent-dark-blue: #0039c6;
+  --color-kanzent-light-blue: #70b6f3;
+  --color-kanzent-medium-blue: #3480e3;
+  --color-kanzent-dark-blue: #0039c6;
 
   /* Background colors */
-  --color-kaizent-bg-dark: #0d0e17;
-  --color-kaizent-bg-darker: #080912;
-  --color-kaizent-bg-light: #13141f;
+  --color-kanzent-bg-dark: #0d0e17;
+  --color-kanzent-bg-darker: #080912;
+  --color-kanzent-bg-light: #13141f;
 
   /* Text colors */
-  --color-kaizent-text-primary: #ffffff;
-  --color-kaizent-text-secondary: #e1e1e6;
-  --color-kaizent-text-tertiary: #a1a1b3;
+  --color-kanzent-text-primary: #ffffff;
+  --color-kanzent-text-secondary: #e1e1e6;
+  --color-kanzent-text-tertiary: #a1a1b3;
 
   /* Action colors */
-  --color-kaizent-action-primary: #f05252;
-  --color-kaizent-action-hover: #e02424;
+  --color-kanzent-action-primary: #f05252;
+  --color-kanzent-action-hover: #e02424;
 
   /* State colors */
-  --color-kaizent-success: #10b981;
-  --color-kaizent-warning: #f59e0b;
-  --color-kaizent-error: #ef4444;
-  --color-kaizent-info: #3b82f6;
+  --color-kanzent-success: #10b981;
+  --color-kanzent-warning: #f59e0b;
+  --color-kanzent-error: #ef4444;
+  --color-kanzent-info: #3b82f6;
 }
 
 /* 
@@ -37,21 +37,21 @@
 @tailwind utilities;
 
 @layer utilities {
-  .text-kaizent-brand {
-    color: var(--color-kaizent-medium-blue);
+  .text-kanzent-brand {
+    color: var(--color-kanzent-medium-blue);
   }
 
-  .bg-kaizent-brand {
-    background-color: var(--color-kaizent-medium-blue);
+  .bg-kanzent-brand {
+    background-color: var(--color-kanzent-medium-blue);
   }
 
-  .border-kaizent-brand {
-    border-color: var(--color-kaizent-medium-blue);
+  .border-kanzent-brand {
+    border-color: var(--color-kanzent-medium-blue);
   }
 
   /* Gradient text utility */
-  .text-kaizent-gradient {
-    background: linear-gradient(to right, var(--color-kaizent-light-blue), var(--color-kaizent-dark-blue));
+  .text-kanzent-gradient {
+    background: linear-gradient(to right, var(--color-kanzent-light-blue), var(--color-kanzent-dark-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -59,11 +59,11 @@
   }
 
   /* Custom shadow with brand color */
-  .shadow-kaizent {
+  .shadow-kanzent {
     box-shadow: 0 4px 14px rgba(52, 128, 227, 0.15);
   }
 
-  .shadow-kaizent-lg {
+  .shadow-kanzent-lg {
     box-shadow: 0 10px 25px rgba(52, 128, 227, 0.2);
   }
 }

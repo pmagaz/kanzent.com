@@ -222,8 +222,8 @@ const CaseStudyPage = ({ pageContext }) => {
             {caseStudy.testimonial.quote && (
               <div className="mt-16 bg-gray-50 rounded-lg p-8 border border-gray-200 relative">
                 <svg className="absolute top-0 left-10 -translate-y-1/2 text-accent w-16 h-16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11.9999 9.00006C11.9999 9.00006 11.9999 7.20006 9.99992 4.80006C7.99992 2.40006 5.99992 3.00006 5.99992 3.00006C5.99992 3.00006 3.99992 4.20006 5.39992 7.80006C6.79992 11.4001 5.99992 15.0001 5.99992 15.0001H11.9999V9.00006Z" />
-                  <path d="M23.9999 9.00006C23.9999 9.00006 23.9999 7.20006 21.9999 4.80006C19.9999 2.40006 17.9999 3.00006 17.9999 3.00006C17.9999 3.00006 15.9999 4.20006 17.3999 7.80006C18.7999 11.4001 17.9999 15.0001 17.9999 15.0001H23.9999V9.00006Z" />
+                  <path d="M11.9999 9.00006C11.9999 9.00006 11.9999 7.20006 10992 4.80006C7.99992 2.40006 5.99992 3.00006 5.99992 3.00006C5.99992 3.00006 3.99992 4.20006 5.39992 7.80006C6.79992 11.4001 5.99992 15.0001 5.99992 15.0001H11.9999V9.00006Z" />
+                  <path d="M23.9999 9.00006C23.9999 9.00006 23.9999 7.20006 21.9999 4.80006C11099 2.40006 17.9999 3.00006 17.9999 3.00006C17.9999 3.00006 15.9999 4.20006 17.3999 7.80006C18.7999 11.4001 17.9999 15.0001 17.9999 15.0001H23.9999V9.00006Z" />
                 </svg>
                 
                 <p className="text-gray-800 text-lg italic mb-6">
@@ -280,5 +280,5 @@ export default CaseStudyPage
 
 export const Head = ({ pageContext }) => {
   const { caseStudy = { title: "Case Study" } } = pageContext;
-  return <title>Kaizent - {caseStudy.title} Case Study</title>
+  return <title>Kanzent - {caseStudy.title} Case Study</title>
 }

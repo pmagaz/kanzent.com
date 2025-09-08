@@ -21,7 +21,7 @@ exports.createPages = async ({ actions }) => {
       results: "Since launch, OnePortfolio has attracted thousands of users in a record time across both Web and Mobile channels. User reviews are quite positive and report saving an average of 3 hours per week on portfolio management tasks, and the platform has received recognition for its intuitive design and comprehensive feature set.",
       testimonial: {
         quote: "Keeping track of my international investments across different brokers was a mess. The dashboard organizes everything so clearly, I can finally see my entire financial picture at a glance.",
-        author: "Peter Klein",
+        author: "George S.",
         position: ""
       },
       ctaLink: "https://oneportfolio.io",

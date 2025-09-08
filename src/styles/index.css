@@ -26,17 +26,17 @@
 
 /* Special section backgrounds */
 #history {
-  @apply bg-kaizent-bg-light;
+  @apply bg-kanzent-bg-light;
 }
 
 #vision {
-  @apply bg-gradient-to-b from-kaizent-bg-dark to-kaizent-bg-darker;
+  @apply bg-gradient-to-b from-kanzent-bg-dark to-kanzent-bg-darker;
 }
 
 #technology {
-  @apply bg-kaizent-bg-light;
+  @apply bg-kanzent-bg-light;
 }
 
 #contact {
-  @apply bg-gradient-to-b from-kaizent-bg-dark to-kaizent-bg-darker;
+  @apply bg-gradient-to-b from-kanzent-bg-dark to-kanzent-bg-darker;
 }
