@@ -203,7 +203,7 @@ const IndexPage = () => {
         backgroundColor="primary"
         textColor="text-white"
         paragraphs={[
-          "Kanzent was established in Zurich, Switzerland in 2025, with origins tracing back to Madrid, Spain. Founded by Spanish entrepreneurs with extensive experience in software development across SaaS companies and international enterprise consultancy services in E-commerce, Financial Services, Media, and Healthcare across many countries."
+          "Kanzent has its roots in Zurich, Switzerland. Founded by Spanish entrepreneurs with extensive experience in software development across SaaS companies and international enterprise consultancy services in E-commerce, Financial Services, Media, and Healthcare across many countries."
         ]}
         boxParagraphs={["Our extensive background in the fast-paced SaaS ecosystem has cultivated a culture of product design, agility and scalable thinking, that product development requires. Furthermore, our consulting prowess has enabled us to develop nuanced client awareness, effective project orchestration, and fulfillment of business imperatives through tailored implementations."]} 
         boxTitle="Story"
