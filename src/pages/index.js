@@ -129,18 +129,18 @@ const IndexPage = () => {
                 style={{ opacity: 0, transform: 'translateY(-80px)' }}
               />
               <h1
-                className="hero-title-animation text-tertiary text-[40px] font-bold mb-2 leading-none text-center"
+                className="hero-title-animation text-slate-500 text-[32px] font-bold mb-2 leading-none text-center"
                 style={{ opacity: 0, transform: 'translateX(50px)' }}
               >
-                Continuous<br />
-                <span className="-mt-2 inline-block">Innovation</span>
+                Engineering Crafted <br />
+                <span className="-mt-2 inline-block">with Excellence</span>
               </h1>
-              <p
+              {/* <p
                 className="hero-slogan-animation text-quaternary text-[16px] mb-10 max-w-[90%] font-normal text-center"
                 style={{ opacity: 0 }}
               >
                 Engineering Crafted with Excellence
-              </p>
+              </p> */}
             </div>
           ) : (
             /* Desktop Layout */
@@ -155,18 +155,18 @@ const IndexPage = () => {
               </div>
               <div>
                 <h1
-                  className="hero-title-animation text-tertiary text-[48px] font-bold mb-2 leading-none"
+                  className="hero-title-animation text-slate-500 text-[38px] font-bold mb-2 leading-none"
                   style={{ opacity: 0, transform: 'translateX(50px)' }}
                 >
-                  Continuous<br />
-                  <span className="-mt-2 inline-block">Innovation</span>
+                  Engineering Crafted<br />
+                  <span className="-mt-2 inline-block">with Excellence</span>
                 </h1>
-                <p
+                {/* <p
                   className="hero-slogan-animation text-quaternary text-[19px] mb-20 max-w-[600px] font-normal"
                   style={{ opacity: 0 }}
                 >
                   Engineering Crafted with Excellence
-                </p>
+                </p> */}
               </div>
             </>
           )}
